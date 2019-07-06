@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,78 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEC-8b-oN8">
+                                <rect key="frame" x="182.5" y="437.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8CQ-fp-Oe8"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Broj pritisaka: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWF-gE-C5n">
+                                <rect key="frame" x="147.5" y="356.5" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Second Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ei-wF-eHL">
+                                <rect key="frame" x="203.5" y="523.5" width="125.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-tF-aT2">
+                                <rect key="frame" x="85" y="523.5" width="105" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsZ-Ty-omO">
+                                <rect key="frame" x="182" y="593.5" width="50" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibj-7L-gVj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sum: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXU-f0-1pE">
+                                <rect key="frame" x="185" y="663.5" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NEC-8b-oN8" firstAttribute="top" secondItem="SWF-gE-C5n" secondAttribute="bottom" constant="60" id="0DL-7S-tGm"/>
+                            <constraint firstItem="sXU-f0-1pE" firstAttribute="top" secondItem="OsZ-Ty-omO" secondAttribute="bottom" constant="40" id="1Lh-wp-yor"/>
+                            <constraint firstItem="OsZ-Ty-omO" firstAttribute="top" secondItem="0ei-wF-eHL" secondAttribute="bottom" constant="40" id="FaV-qe-Pjl"/>
+                            <constraint firstItem="sXU-f0-1pE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TsQ-sa-dKf"/>
+                            <constraint firstItem="jEb-tF-aT2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="WHV-9r-xBS"/>
+                            <constraint firstItem="0ei-wF-eHL" firstAttribute="top" secondItem="NEC-8b-oN8" secondAttribute="bottom" constant="55" id="X4F-af-vtu"/>
+                            <constraint firstItem="jEb-tF-aT2" firstAttribute="top" secondItem="NEC-8b-oN8" secondAttribute="bottom" constant="55" id="bEy-WQ-PTM"/>
+                            <constraint firstItem="0ei-wF-eHL" firstAttribute="leading" secondItem="jEb-tF-aT2" secondAttribute="trailing" constant="13.5" id="i6c-iU-yRA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ei-wF-eHL" secondAttribute="trailing" constant="85" id="ldk-ev-Ang"/>
+                            <constraint firstItem="NEC-8b-oN8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sBC-ke-xb2"/>
+                            <constraint firstItem="SWF-gE-C5n" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sud-5n-u2y"/>
+                            <constraint firstItem="OsZ-Ty-omO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vs2-kS-XAB"/>
+                            <constraint firstItem="NEC-8b-oN8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zbq-Tg-zUg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="OsZ-Ty-omO" id="1np-ll-ULe"/>
+                        <outlet property="firstNumberOutlet" destination="jEb-tF-aT2" id="5Aa-uo-Yzm"/>
+                        <outlet property="labela" destination="SWF-gE-C5n" id="wKe-I9-6hN"/>
+                        <outlet property="myswitch" destination="NEC-8b-oN8" id="mtV-2f-lb3"/>
+                        <outlet property="secondNumberOutlet" destination="0ei-wF-eHL" id="KwV-MB-nus"/>
+                        <outlet property="sumLabel" destination="sXU-f0-1pE" id="zod-gL-j8I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
