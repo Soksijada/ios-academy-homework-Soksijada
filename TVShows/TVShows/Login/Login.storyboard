@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zbZ-cb-xnv">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="yTA-EI-n6d">
+            <objects>
+                <viewController id="zbZ-cb-xnv" customClass="LoginViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fun-oT-aqe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of taps: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRL-bX-Btf">
+                                <rect key="frame" x="102" y="330" width="210" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="APU-5c-59Z"/>
+                                    <constraint firstAttribute="width" constant="210" id="ZTz-wF-uXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu9-WL-XlM">
+                                <rect key="frame" x="157" y="451" width="100" height="52"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="YRy-HF-8RX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Tap">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="Qvu-SQ-SRQ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-pr-ngt">
+                                <rect key="frame" x="189" y="390" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1501777172088623" green="0.58110231161117554" blue="0.18401235342025757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gu9-WL-XlM" firstAttribute="centerX" secondItem="IEc-Z3-hZd" secondAttribute="centerX" id="ONC-v5-0Au"/>
+                            <constraint firstItem="gRL-bX-Btf" firstAttribute="centerX" secondItem="IEc-Z3-hZd" secondAttribute="centerX" id="TdA-NT-3Tk"/>
+                            <constraint firstItem="gRL-bX-Btf" firstAttribute="centerY" secondItem="IEc-Z3-hZd" secondAttribute="centerY" constant="-105.5" id="p7o-GL-HBz"/>
+                            <constraint firstItem="Gu9-WL-XlM" firstAttribute="top" secondItem="gRL-bX-Btf" secondAttribute="bottom" constant="86" id="vQX-vh-9OA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IEc-Z3-hZd"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="5AM-pr-ngt" id="Wzb-1a-foq"/>
+                        <outlet property="button" destination="Gu9-WL-XlM" id="0mT-Rg-Jve"/>
+                        <outlet property="label" destination="gRL-bX-Btf" id="d4x-lm-Tih"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Khf-vD-ukf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="53.571428571428569"/>
+        </scene>
+    </scenes>
+</document>
