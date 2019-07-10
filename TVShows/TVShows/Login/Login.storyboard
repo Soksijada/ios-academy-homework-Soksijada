@@ -20,7 +20,7 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of taps: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRL-bX-Btf">
                                 <rect key="frame" x="102" y="330" width="210" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99231499433517456" green="0.57602185010910034" blue="0.0060503240674734116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="APU-5c-59Z"/>
                                     <constraint firstAttribute="width" constant="210" id="ZTz-wF-uXb"/>
@@ -33,25 +33,28 @@
                                 <rect key="frame" x="157" y="451" width="100" height="52"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Iaw-1i-XcP"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="YRy-HF-8RX"/>
+                                    <constraint firstAttribute="height" constant="52" id="gXK-cU-hHb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Tap">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="Qvu-SQ-SRQ"/>
+                                    <action selector="buttonTouched" destination="zbZ-cb-xnv" eventType="touchUpInside" id="fqg-q6-ng5"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-pr-ngt">
-                                <rect key="frame" x="189" y="390" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-pr-ngt">
+                                <rect key="frame" x="188.5" y="390" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1501777172088623" green="0.58110231161117554" blue="0.18401235342025757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5AM-pr-ngt" firstAttribute="centerX" secondItem="IEc-Z3-hZd" secondAttribute="centerX" id="0rY-Hs-vI9"/>
                             <constraint firstItem="Gu9-WL-XlM" firstAttribute="centerX" secondItem="IEc-Z3-hZd" secondAttribute="centerX" id="ONC-v5-0Au"/>
                             <constraint firstItem="gRL-bX-Btf" firstAttribute="centerX" secondItem="IEc-Z3-hZd" secondAttribute="centerX" id="TdA-NT-3Tk"/>
+                            <constraint firstItem="5AM-pr-ngt" firstAttribute="top" secondItem="gRL-bX-Btf" secondAttribute="bottom" constant="25" id="hgP-SV-lpQ"/>
                             <constraint firstItem="gRL-bX-Btf" firstAttribute="centerY" secondItem="IEc-Z3-hZd" secondAttribute="centerY" constant="-105.5" id="p7o-GL-HBz"/>
                             <constraint firstItem="Gu9-WL-XlM" firstAttribute="top" secondItem="gRL-bX-Btf" secondAttribute="bottom" constant="86" id="vQX-vh-9OA"/>
                         </constraints>

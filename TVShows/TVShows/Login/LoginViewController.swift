@@ -8,48 +8,48 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var button: UIButton!
-    var numberOfTaps = 0
-    let buttonCornerRadius: CGFloat = 10   // *****
-    let textLabelCornerRadius: CGFloat = 5 //
-    let buttonBorderWidth: CGFloat = 1     // Setting values for corner radius and border width of button and label
-    let textLabelBorderWidth: CGFloat = 1  //
-    let timeOfActivityIndicator = 3        // *****
-
+final class LoginViewController: UIViewController {
     
+    // MARK: - Outlets
+
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var button: UIButton!
+    
+    // MARK: - Proporties
+    
+    private var numberOfTaps = 0
+    
+    // MARK: - Lifecycle methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        button.layer.cornerRadius = buttonCornerRadius
-        button.layer.borderWidth = buttonBorderWidth
-        button.layer.borderColor = UIColor.black.cgColor
-        label.layer.cornerRadius = textLabelCornerRadius
-        label.layer.borderWidth = textLabelBorderWidth
-        label.layer.borderColor = UIColor.black.cgColor
+        configureUI()
         activityIndicator.startAnimating()  // Starting animation of activityIndicator
-        Timer.scheduledTimer(timeInterval: TimeInterval(timeOfActivityIndicator), target: self, selector: #selector(stopIndicator), userInfo: nil, repeats: false) // Delaying stopIndicator function
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.activityIndicator.stopAnimating()
+        }  // Delaying stopIndicator function
     }
     
-    @objc func stopIndicator() {
-        activityIndicator.isHidden = true
-        activityIndicator.stopAnimating()
+    // MARK: - Actions
+    
+    private func configureUI() {
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        label.layer.cornerRadius = 5
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.black.cgColor
     }
     
-    @IBAction func buttonTouched(_ sender: UIButton) {
+    @IBAction private func buttonTouched() {
         numberOfTaps += 1
         label.text = "Number of taps: \(numberOfTaps)"
-        if activityIndicator.isHidden == true {
-            activityIndicator.isHidden = false
+        if activityIndicator.isHidden {
             activityIndicator.startAnimating()
             button.setTitle("Stop", for: UIControl.State.normal)
         } else {
             activityIndicator.stopAnimating()
-            activityIndicator.isHidden = true
             button.setTitle("Start", for: UIControl.State.normal)
         }
     }
