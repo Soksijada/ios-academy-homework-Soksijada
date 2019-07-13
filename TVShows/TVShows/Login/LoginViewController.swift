@@ -15,6 +15,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     
+    
     // MARK: - Proporties
     
     
@@ -24,7 +25,13 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // MARK: - Actions
