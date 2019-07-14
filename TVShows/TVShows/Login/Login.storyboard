@@ -60,17 +60,21 @@
                                             <constraint firstAttribute="height" constant="1" id="lgm-Ci-wAD"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-checkbox-empty" translatesAutoresizingMaskIntoConstraints="NO" id="WxL-VR-HRp">
-                                        <rect key="frame" x="10" y="387" width="20" height="20"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKT-mu-WVK">
+                                        <rect key="frame" x="7" y="387" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="6fy-m4-KCV"/>
-                                            <constraint firstAttribute="width" constant="20" id="Hhl-X2-1Er"/>
+                                            <constraint firstAttribute="height" constant="20" id="UM6-bc-3X6"/>
+                                            <constraint firstAttribute="width" constant="20" id="bX5-q1-HSh"/>
                                         </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-Z1-G2X">
-                                        <rect key="frame" x="40" y="387" width="112" height="21"/>
+                                        <state key="normal" image="ic-checkbox-empty"/>
+                                        <connections>
+                                            <action selector="rememberMeBoxTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="pyc-ip-oiu"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-Z1-G2X">
+                                        <rect key="frame" x="37" y="387" width="112" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="bON-Xr-hVq"/>
+                                            <constraint firstAttribute="height" constant="20" id="hDv-3o-qji"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -100,10 +104,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fcD-yz-iDy" secondAttribute="trailing" constant="10" id="71N-nc-t7p"/>
                                     <constraint firstItem="XJl-zE-nUo" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="10" id="B4n-UE-Jfe"/>
+                                    <constraint firstItem="BKT-mu-WVK" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="7" id="CP2-uR-5N7"/>
                                     <constraint firstAttribute="bottom" secondItem="5wa-aT-sXQ" secondAttribute="bottom" constant="10" id="DMo-Dk-jAd"/>
                                     <constraint firstAttribute="trailing" secondItem="njK-on-gR1" secondAttribute="trailing" constant="10" id="EXU-OE-SiD"/>
                                     <constraint firstItem="vWn-eR-RVp" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="10" id="Er6-7Y-nIU"/>
-                                    <constraint firstItem="WxL-VR-HRp" firstAttribute="leading" secondItem="njK-on-gR1" secondAttribute="leading" id="Exb-Iw-740"/>
+                                    <constraint firstItem="B8n-Z1-G2X" firstAttribute="leading" secondItem="BKT-mu-WVK" secondAttribute="trailing" constant="10" id="F10-6Z-R4k"/>
                                     <constraint firstItem="i2g-er-CEH" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" id="KtQ-Ml-rdP"/>
                                     <constraint firstAttribute="trailing" secondItem="vWn-eR-RVp" secondAttribute="trailing" constant="10" id="MTv-ZQ-dmz"/>
                                     <constraint firstItem="vWn-eR-RVp" firstAttribute="top" secondItem="pmt-zN-Qoh" secondAttribute="bottom" constant="40" id="MzH-bl-7BX"/>
@@ -111,7 +116,7 @@
                                     <constraint firstAttribute="trailing" secondItem="pmt-zN-Qoh" secondAttribute="trailing" constant="10" id="QK7-NY-hzJ"/>
                                     <constraint firstItem="XJl-zE-nUo" firstAttribute="top" secondItem="i2g-er-CEH" secondAttribute="bottom" constant="60" id="VXe-MS-Igs"/>
                                     <constraint firstItem="njK-on-gR1" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="10" id="aC6-r1-KFc"/>
-                                    <constraint firstItem="WxL-VR-HRp" firstAttribute="top" secondItem="njK-on-gR1" secondAttribute="bottom" constant="15" id="aVp-Pf-4LF"/>
+                                    <constraint firstItem="B8n-Z1-G2X" firstAttribute="top" secondItem="njK-on-gR1" secondAttribute="bottom" constant="15" id="ai8-7t-chK"/>
                                     <constraint firstItem="ioR-52-qee" firstAttribute="top" secondItem="fcD-yz-iDy" secondAttribute="bottom" constant="15" id="ati-T2-BUF"/>
                                     <constraint firstItem="5wa-aT-sXQ" firstAttribute="centerX" secondItem="Ash-P1-SHO" secondAttribute="centerX" id="atv-fk-36A"/>
                                     <constraint firstItem="njK-on-gR1" firstAttribute="top" secondItem="vWn-eR-RVp" secondAttribute="bottom" constant="10" id="cMR-99-tJ8"/>
@@ -119,14 +124,12 @@
                                     <constraint firstAttribute="trailing" secondItem="XJl-zE-nUo" secondAttribute="trailing" constant="10" id="hx8-aJ-gCT"/>
                                     <constraint firstAttribute="trailing" secondItem="i2g-er-CEH" secondAttribute="trailing" id="idG-Vd-ujJ"/>
                                     <constraint firstItem="5wa-aT-sXQ" firstAttribute="top" secondItem="ioR-52-qee" secondAttribute="bottom" constant="10" id="oNG-Yb-eY2"/>
-                                    <constraint firstItem="B8n-Z1-G2X" firstAttribute="leading" secondItem="WxL-VR-HRp" secondAttribute="trailing" constant="10" id="oSU-A8-n60"/>
                                     <constraint firstItem="pmt-zN-Qoh" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="10" id="ooR-8u-EGo"/>
                                     <constraint firstItem="pmt-zN-Qoh" firstAttribute="top" secondItem="XJl-zE-nUo" secondAttribute="bottom" constant="10" id="qea-VY-8kG"/>
                                     <constraint firstItem="i2g-er-CEH" firstAttribute="width" secondItem="Ash-P1-SHO" secondAttribute="width" id="tPe-7O-FRu"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B8n-Z1-G2X" secondAttribute="trailing" constant="20" symbolic="YES" id="uV5-Sb-1Gj"/>
                                     <constraint firstItem="i2g-er-CEH" firstAttribute="top" secondItem="Ash-P1-SHO" secondAttribute="top" constant="60" id="uat-so-wbB"/>
+                                    <constraint firstItem="BKT-mu-WVK" firstAttribute="top" secondItem="njK-on-gR1" secondAttribute="bottom" constant="15" id="xHb-7i-CKa"/>
                                     <constraint firstItem="fcD-yz-iDy" firstAttribute="leading" secondItem="Ash-P1-SHO" secondAttribute="leading" constant="10" id="xKk-8u-16q"/>
-                                    <constraint firstItem="B8n-Z1-G2X" firstAttribute="top" secondItem="njK-on-gR1" secondAttribute="bottom" constant="15" id="xTQ-LG-zhV"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

@@ -12,9 +12,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet weak var logInButton: UIButton!
-    
-    
+    @IBOutlet private weak var logInButton: UIButton!
     
     // MARK: - Proporties
     
@@ -26,21 +24,28 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
         view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     // MARK: - Actions
     
-    private func configureUI() {
-        logInButton.layer.cornerRadius = 10
+    @IBAction private func rememberMeBoxTouched(_ sender: UIButton) {
+        let image: UIImage? = sender.image(for: .normal)
+        if image == UIImage(named: "ic-checkbox-empty") {
+            sender.setImage(UIImage(named: "ic-checkbox-filled"), for: .normal)
+        } else {
+            sender.setImage(UIImage(named: "ic-checkbox-empty"), for: .normal)
+        }
     }
     
     
+    // MARK: - Private functions
     
-
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func configureUI() {
+        logInButton.layer.cornerRadius = 10
+    }
 }
