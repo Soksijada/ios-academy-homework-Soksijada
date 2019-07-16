@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C197238522DCBB9D00219915 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C197238422DCBB9D00219915 /* Home.storyboard */; };
+		C19F580122DDA2A100A18A49 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580022DDA2A100A18A49 /* User.swift */; };
+		C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580222DDA3A900A18A49 /* LoginData.swift */; };
+		C1A48EF922DB7C6C00856BB1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A48EF822DB7C6C00856BB1 /* HomeViewController.swift */; };
 		C1AC8A6C22CE53DC000075BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC8A6B22CE53DC000075BD /* AppDelegate.swift */; };
-		C1AC8A6E22CE53DC000075BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC8A6D22CE53DC000075BD /* ViewController.swift */; };
 		C1AC8A7322CE53DD000075BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1AC8A7222CE53DD000075BD /* Assets.xcassets */; };
 		C1AC8A7622CE53DD000075BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC8A7422CE53DD000075BD /* LaunchScreen.storyboard */; };
 		C1C1C23822D0CEAC0038156E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C1C23722D0CEAC0038156E /* Login.storyboard */; };
@@ -20,9 +23,12 @@
 		028ED9198E30D283649CFF10 /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		86FF75883ACCA860CEF8CF14 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
+		C197238422DCBB9D00219915 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C19F580022DDA2A100A18A49 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C19F580222DDA3A900A18A49 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		C1A48EF822DB7C6C00856BB1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C1AC8A6822CE53DC000075BD /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC8A6B22CE53DC000075BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1AC8A6D22CE53DC000075BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1AC8A7222CE53DD000075BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1AC8A7522CE53DD000075BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1AC8A7722CE53DD000075BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,8 +62,16 @@
 				8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */,
 				028ED9198E30D283649CFF10 /* Pods-TVShows.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C197238322DCBA8300219915 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C197238422DCBB9D00219915 /* Home.storyboard */,
+				C1A48EF822DB7C6C00856BB1 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C1AC8A5F22CE53DC000075BD = {
@@ -81,9 +95,9 @@
 		C1AC8A6A22CE53DC000075BD /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				C197238322DCBA8300219915 /* Home */,
 				C1C1C23622D0CE370038156E /* Login */,
 				C1AC8A6B22CE53DC000075BD /* AppDelegate.swift */,
-				C1AC8A6D22CE53DC000075BD /* ViewController.swift */,
 				C1AC8A7222CE53DD000075BD /* Assets.xcassets */,
 				C1AC8A7422CE53DD000075BD /* LaunchScreen.storyboard */,
 				C1AC8A7722CE53DD000075BD /* Info.plist */,
@@ -96,6 +110,8 @@
 			children = (
 				C1C1C23722D0CEAC0038156E /* Login.storyboard */,
 				C1C1C23D22D0D6700038156E /* LoginViewController.swift */,
+				C19F580022DDA2A100A18A49 /* User.swift */,
+				C19F580222DDA3A900A18A49 /* LoginData.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -163,6 +179,7 @@
 				C1AC8A7622CE53DD000075BD /* LaunchScreen.storyboard in Resources */,
 				C1AC8A7322CE53DD000075BD /* Assets.xcassets in Resources */,
 				C1C1C23822D0CEAC0038156E /* Login.storyboard in Resources */,
+				C197238522DCBB9D00219915 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1C1C23E22D0D6700038156E /* LoginViewController.swift in Sources */,
-				C1AC8A6E22CE53DC000075BD /* ViewController.swift in Sources */,
+				C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */,
+				C19F580122DDA2A100A18A49 /* User.swift in Sources */,
 				C1AC8A6C22CE53DC000075BD /* AppDelegate.swift in Sources */,
+				C1A48EF922DB7C6C00856BB1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

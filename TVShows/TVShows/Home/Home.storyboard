@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="7pb-o4-Y4q">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zMX-e6-8Ft" customClass="HomeViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="deU-se-kUE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x08-Rw-43S">
+                                <rect key="frame" x="146" y="433" width="122" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0F-5g-QBL">
+                                <rect key="frame" x="163.5" y="483" width="87" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q0F-5g-QBL" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="JP6-NV-MEk"/>
+                            <constraint firstItem="x08-Rw-43S" firstAttribute="centerY" secondItem="deU-se-kUE" secondAttribute="centerY" id="K6d-rE-AaJ"/>
+                            <constraint firstItem="Q0F-5g-QBL" firstAttribute="top" secondItem="x08-Rw-43S" secondAttribute="bottom" constant="20" id="Zxn-Yn-rYN"/>
+                            <constraint firstItem="x08-Rw-43S" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="mRo-gP-vy9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iil-ZW-QfH"/>
+                    </view>
+                    <connections>
+                        <outlet property="userEmailLabel" destination="x08-Rw-43S" id="fa7-wQ-ASa"/>
+                        <outlet property="userIDLabel" destination="Q0F-5g-QBL" id="TbT-fb-k1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s55-iS-9So" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428.985507246377" y="59.598214285714285"/>
+        </scene>
+    </scenes>
+</document>

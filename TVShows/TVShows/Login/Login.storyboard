@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zbZ-cb-xnv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z1r-zP-iyl">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="yTA-EI-n6d">
             <objects>
-                <viewController id="zbZ-cb-xnv" customClass="LoginViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zbZ-cb-xnv" customClass="LoginViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fun-oT-aqe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +88,10 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="LOG IN"/>
+                                        <connections>
+                                            <action selector="logInTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="E7v-sc-8kf"/>
+                                            <action selector="navigateToHome:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="SyF-be-Ihk"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-52-qee">
                                         <rect key="frame" x="199" y="527" width="16" height="21"/>
@@ -99,6 +103,10 @@
                                         <rect key="frame" x="144" y="558" width="126" height="30"/>
                                         <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Create an account"/>
+                                        <connections>
+                                            <action selector="createAnAccountTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="nY6-1j-xVX"/>
+                                            <action selector="navigateToHome:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="r7i-6S-AkD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -142,13 +150,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IEc-Z3-hZd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="x57-LD-KAn"/>
                     <connections>
+                        <outlet property="createAnAccountButton" destination="5wa-aT-sXQ" id="y7w-hN-O1l"/>
                         <outlet property="logInButton" destination="fcD-yz-iDy" id="mTq-PY-kGh"/>
+                        <outlet property="passwordTextField" destination="vWn-eR-RVp" id="RGl-Oy-hYQ"/>
+                        <outlet property="userNameTextField" destination="XJl-zE-nUo" id="TZe-qr-MqR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khf-vD-ukf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.6376811594203" y="53.571428571428569"/>
+            <point key="canvasLocation" x="671.01449275362324" y="59.598214285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NJO-s1-Uxm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z1r-zP-iyl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KjB-jz-fgq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zbZ-cb-xnv" kind="relationship" relationship="rootViewController" id="eX4-Qk-49L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjc-5B-Pye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239.13043478260872" y="59.598214285714285"/>
         </scene>
     </scenes>
     <resources>
