@@ -64,6 +64,16 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Private functions
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
