@@ -16,14 +16,14 @@ final class LoginViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet private weak var logInButton: UIButton!
-    @IBOutlet weak var createAnAccountButton: UIButton!
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var createAnAccountButton: UIButton!
+    @IBOutlet private weak var userNameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     // MARK: - Proporties
     
-    var email: String = "emptyString"
-    var userID: String = "emptyID"
+    private var email: String = "emptyString"
+    private var userID: String = "emptyID"
     
     // MARK: - Lifecycle methods
 
@@ -45,12 +45,18 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func createAnAccountTouched(_ sender: UIButton) {
-        _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
+    @IBAction private func createAnAccountTouched(_ sender: UIButton) {
+        if userNameTextField.text != "" && passwordTextField.text != "" {
+            _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
+        } else {
+            let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     
     
-    @IBAction func logInTouched(_ sender: UIButton) {
+    @IBAction private func logInTouched(_ sender: UIButton) {
         _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
         
     }
@@ -113,7 +119,7 @@ final class LoginViewController: UIViewController {
                 "password": password
             ]
             
-            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON {
+        Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON {
                  dataResponse in
                 SVProgressHUD.dismiss()
                 switch dataResponse.result {

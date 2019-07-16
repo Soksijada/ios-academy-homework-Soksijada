@@ -20,9 +20,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let objekt = LoginViewController()
-        email = objekt.email
-        userID = objekt.userID
         userEmailLabel.text = "User Email: \(email)"
         userIDLabel.text = "User ID: \(userID)"
 
