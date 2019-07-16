@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x08-Rw-43S">
-                                <rect key="frame" x="146" y="433" width="122" height="30"/>
+                                <rect key="frame" x="146" y="194" width="122" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0F-5g-QBL">
-                                <rect key="frame" x="163.5" y="483" width="87" height="30"/>
+                                <rect key="frame" x="163.5" y="244" width="87" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,8 +33,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="x08-Rw-43S" firstAttribute="top" secondItem="iil-ZW-QfH" secondAttribute="top" constant="150" id="F3y-xl-F6I"/>
                             <constraint firstItem="Q0F-5g-QBL" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="JP6-NV-MEk"/>
-                            <constraint firstItem="x08-Rw-43S" firstAttribute="centerY" secondItem="deU-se-kUE" secondAttribute="centerY" id="K6d-rE-AaJ"/>
                             <constraint firstItem="Q0F-5g-QBL" firstAttribute="top" secondItem="x08-Rw-43S" secondAttribute="bottom" constant="20" id="Zxn-Yn-rYN"/>
                             <constraint firstItem="x08-Rw-43S" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="mRo-gP-vy9"/>
                         </constraints>

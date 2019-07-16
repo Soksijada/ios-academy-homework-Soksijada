@@ -90,7 +90,6 @@
                                         <state key="normal" title="LOG IN"/>
                                         <connections>
                                             <action selector="logInTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="E7v-sc-8kf"/>
-                                            <action selector="navigateToHome:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="SyF-be-Ihk"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-52-qee">
@@ -105,7 +104,6 @@
                                         <state key="normal" title="Create an account"/>
                                         <connections>
                                             <action selector="createAnAccountTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="nY6-1j-xVX"/>
-                                            <action selector="navigateToHome:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="r7i-6S-AkD"/>
                                         </connections>
                                     </button>
                                 </subviews>

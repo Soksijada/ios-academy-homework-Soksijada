@@ -22,8 +22,8 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Proporties
     
-    private var email: String = "emptyString"
-    private var userID: String = "emptyID"
+    var email1: String = "emptyString"
+    var userID1: String = "emptyID"
     
     // MARK: - Lifecycle methods
 
@@ -49,16 +49,17 @@ final class LoginViewController: UIViewController {
         if userNameTextField.text != "" && passwordTextField.text != "" {
             _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
         } else {
-            let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            self.present(alert, animated: true)
+            missingInputAlert()
         }
     }
     
     
     @IBAction private func logInTouched(_ sender: UIButton) {
-        _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
-        
+        if userNameTextField.text != "" && passwordTextField.text != "" {
+            _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
+        } else {
+            missingInputAlert()
+        }
     }
     
     // MARK: - Private functions
@@ -69,6 +70,12 @@ final class LoginViewController: UIViewController {
     
     private func configureUI() {
         logInButton.layer.cornerRadius = 10
+    }
+    
+    private func missingInputAlert() {
+        let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     // MARK: - Navigation
@@ -125,8 +132,12 @@ final class LoginViewController: UIViewController {
                 switch dataResponse.result {
                 case .success( _):
                     SVProgressHUD.showSuccess(withStatus: "Success")
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    self.navigationController?.pushViewController(viewController, animated: true)
                 case .failure( _):
                     SVProgressHUD.showError(withStatus: "Failture")
+                    
                 }
             }
         }
