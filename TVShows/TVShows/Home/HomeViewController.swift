@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
         userEmailLabel.text = "User Email: \(email)"
         userIDLabel.text = "User ID: \(userID)"
 

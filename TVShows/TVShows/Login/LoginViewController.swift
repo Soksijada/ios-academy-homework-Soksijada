@@ -20,11 +20,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     
-    // MARK: - Proporties
-    
-    var email1: String = "emptyString"
-    var userID1: String = "emptyID"
-    
     // MARK: - Lifecycle methods
 
     override func viewDidLoad() {
@@ -46,19 +41,27 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction private func createAnAccountTouched(_ sender: UIButton) {
-        if userNameTextField.text != "" && passwordTextField.text != "" {
-            _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
-        } else {
+        if userNameTextField.text?.isEmpty ?? true {
             missingInputAlert()
+        } else {
+            if passwordTextField.text?.isEmpty ?? true {
+                missingInputAlert()
+            } else {
+                _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
+            }
         }
     }
     
     
     @IBAction private func logInTouched(_ sender: UIButton) {
-        if userNameTextField.text != "" && passwordTextField.text != "" {
-            _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
-        } else {
+        if userNameTextField.text?.isEmpty ?? true {
             missingInputAlert()
+        } else {
+            if passwordTextField.text?.isEmpty ?? true {
+                missingInputAlert()
+            } else {
+                _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
+            }
         }
     }
     
@@ -84,7 +87,7 @@ final class LoginViewController: UIViewController {
     
     private func missingInputAlert() {
         let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
@@ -147,7 +150,6 @@ final class LoginViewController: UIViewController {
                     self.navigationController?.pushViewController(viewController, animated: true)
                 case .failure( _):
                     SVProgressHUD.showError(withStatus: "Failture")
-                    
                 }
             }
         }
