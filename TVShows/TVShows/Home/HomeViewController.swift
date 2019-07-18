@@ -10,19 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var email: String = "empty"
-    var userID: String = "empty"
-    @IBOutlet weak var userEmailLabel: UILabel!
-    @IBOutlet weak var userIDLabel: UILabel!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        userEmailLabel.text = "User Email: \(email)"
-        userIDLabel.text = "User ID: \(userID)"
 
         // Do any additional setup after loading the view.
     }

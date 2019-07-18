@@ -89,7 +89,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="LOG IN"/>
                                         <connections>
-                                            <action selector="logInTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="E7v-sc-8kf"/>
+                                            <action selector="logInTouched" destination="zbZ-cb-xnv" eventType="touchUpInside" id="qgp-Mc-sbI"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioR-52-qee">
@@ -103,7 +103,7 @@
                                         <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Create an account"/>
                                         <connections>
-                                            <action selector="createAnAccountTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="nY6-1j-xVX"/>
+                                            <action selector="createAnAccountTouched" destination="zbZ-cb-xnv" eventType="touchUpInside" id="cMF-m0-yYf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,7 +150,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="x57-LD-KAn"/>
                     <connections>
-                        <outlet property="createAnAccountButton" destination="5wa-aT-sXQ" id="y7w-hN-O1l"/>
                         <outlet property="logInButton" destination="fcD-yz-iDy" id="mTq-PY-kGh"/>
                         <outlet property="passwordTextField" destination="vWn-eR-RVp" id="RGl-Oy-hYQ"/>
                         <outlet property="userNameTextField" destination="XJl-zE-nUo" id="TZe-qr-MqR"/>

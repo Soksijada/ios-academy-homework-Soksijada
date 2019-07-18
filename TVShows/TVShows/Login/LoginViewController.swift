@@ -16,7 +16,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet private weak var logInButton: UIButton!
-    @IBOutlet private weak var createAnAccountButton: UIButton!
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     
@@ -27,6 +26,16 @@ final class LoginViewController: UIViewController {
         configureUI()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: - Actions
@@ -40,7 +49,7 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction private func createAnAccountTouched(_ sender: UIButton) {
+    @IBAction private func createAnAccountTouched() {
         if userNameTextField.text?.isEmpty ?? true {
             missingInputAlert()
         } else {
@@ -52,8 +61,7 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    
-    @IBAction private func logInTouched(_ sender: UIButton) {
+    @IBAction private func logInTouched() {
         if userNameTextField.text?.isEmpty ?? true {
             missingInputAlert()
         } else {
@@ -66,16 +74,6 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - Private functions
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
@@ -91,15 +89,13 @@ final class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    // MARK: - Navigation
-    
-    @IBAction func navigateToHome(_ sender: UIButton) {
+    private func navigateToHome() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }
+
     // MARK: - Register + Automatic JSON parsing
     
     private extension LoginViewController {
@@ -145,9 +141,7 @@ final class LoginViewController: UIViewController {
                 switch dataResponse.result {
                 case .success( _):
                     SVProgressHUD.showSuccess(withStatus: "Success")
-                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                    self.navigationController?.pushViewController(viewController, animated: true)
+                    self.navigateToHome()
                 case .failure( _):
                     SVProgressHUD.showError(withStatus: "Failture")
                 }
