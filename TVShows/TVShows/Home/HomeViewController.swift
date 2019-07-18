@@ -10,30 +10,27 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var token: String!
+    // MARK: - Properties
+    
+    var token: String?
+    
+    // MARK: - Outlets
+    
     @IBOutlet private weak var infoLabel: UILabel!
+    
+    // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoLabel.text = token
-
-        // Do any additional setup after loading the view.
+        if let thereIsToken = token {
+            infoLabel.text = "Your token: \(thereIsToken)"
+        } else {
+            infoLabel.text = "There is no token."
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
