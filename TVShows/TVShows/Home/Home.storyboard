@@ -32,6 +32,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iil-ZW-QfH"/>
                     </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="x08-Rw-43S" id="nhJ-aL-uHz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s55-iS-9So" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

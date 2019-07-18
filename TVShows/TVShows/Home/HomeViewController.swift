@@ -10,12 +10,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var token: String!
+    @IBOutlet private weak var infoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        infoLabel.text = token
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
 
     /*

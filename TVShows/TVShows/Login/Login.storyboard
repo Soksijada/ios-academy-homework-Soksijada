@@ -67,6 +67,7 @@
                                             <constraint firstAttribute="width" constant="20" id="bX5-q1-HSh"/>
                                         </constraints>
                                         <state key="normal" image="ic-checkbox-empty"/>
+                                        <state key="selected" image="ic-checkbox-filled"/>
                                         <connections>
                                             <action selector="rememberMeBoxTouched:" destination="zbZ-cb-xnv" eventType="touchUpInside" id="pyc-ip-oiu"/>
                                         </connections>
@@ -180,6 +181,7 @@
     </scenes>
     <resources>
         <image name="ic-checkbox-empty" width="24" height="24"/>
+        <image name="ic-checkbox-filled" width="24" height="24"/>
         <image name="login-logo" width="75" height="80"/>
     </resources>
 </document>

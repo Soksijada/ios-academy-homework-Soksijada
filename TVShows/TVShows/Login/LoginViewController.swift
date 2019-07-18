@@ -29,48 +29,30 @@ final class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     // MARK: - Actions
     
     @IBAction private func rememberMeBoxTouched(_ sender: UIButton) {
-        let image: UIImage? = sender.image(for: .normal)
-        if image == UIImage(named: "ic-checkbox-empty") {
-            sender.setImage(UIImage(named: "ic-checkbox-filled"), for: .normal)
-        } else {
-            sender.setImage(UIImage(named: "ic-checkbox-empty"), for: .normal)
-        }
+        sender.isSelected.toggle()
     }
     
     @IBAction private func createAnAccountTouched() {
-        if userNameTextField.text?.isEmpty ?? true {
+        guard let email = userNameTextField.text, let password = passwordTextField.text, !email.isEmpty, !password.isEmpty else {
             missingInputAlert()
-        } else {
-            if passwordTextField.text?.isEmpty ?? true {
-                missingInputAlert()
-            } else {
-                _almofireCodableRegisterUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
-            }
+            return
         }
+        _almofireCodableRegisterUserWith(email: email, password: password)
     }
     
     @IBAction private func logInTouched() {
-        if userNameTextField.text?.isEmpty ?? true {
+        guard let email = userNameTextField.text, let password = passwordTextField.text, !email.isEmpty, !password.isEmpty else {
             missingInputAlert()
-        } else {
-            if passwordTextField.text?.isEmpty ?? true {
-                missingInputAlert()
-            } else {
-                _loginUserWith(email: userNameTextField.text!, password: passwordTextField.text!)
-            }
+            return
         }
+        _loginUserWith(email: email, password: password)
     }
     
     // MARK: - Private functions
@@ -89,9 +71,10 @@ final class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    private func navigateToHome() {
+    private func navigateToHome(token: String) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+         viewController.token = token
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -135,15 +118,16 @@ final class LoginViewController: UIViewController {
                 "password": password
             ]
             
-        Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON {
-                 dataResponse in
+            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data") {
+                [weak self]
+                (response: DataResponse<LoginData>) in
                 SVProgressHUD.dismiss()
-                switch dataResponse.result {
-                case .success( _):
-                    SVProgressHUD.showSuccess(withStatus: "Success")
-                    self.navigateToHome()
-                case .failure( _):
-                    SVProgressHUD.showError(withStatus: "Failture")
+                switch response.result {
+                case .success(let user):
+                    print("Success: \(user)")
+                    self?.navigateToHome(token: user.token)
+                case .failure(let error):
+                    print("API failure: \(error)")
                 }
             }
         }
