@@ -80,7 +80,7 @@ final class LoginViewController: UIViewController {
     private func navigateToHome(token: String) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-         viewController.token = token
+        viewController.token = token
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -99,7 +99,7 @@ final class LoginViewController: UIViewController {
             
             Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
                     [weak self]
-                    (response: DataResponse<User>) in
+                (response: DataResponse<User>) in
                     SVProgressHUD.dismiss()
                     switch response.result {
                     case .success(let user):
