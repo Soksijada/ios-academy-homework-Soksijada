@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
+import CodableAlamofire
 
 class HomeViewController: UIViewController {
     
+    @IBAction func buttonTaped(_ sender: UIButton) {
+        _getShowsList()
+    }
     // MARK: - Properties
     
     var token: String?
@@ -34,3 +40,33 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
+
+
+
+// MARK: - Login + Automatic JSON parsing
+
+private extension HomeViewController {
+    func _getShowsList() {
+        
+        let headers = ["Authorization": token]
+        
+        Alamofire
+            .request(
+                "https://api.infinum.academy/api/shows",
+                method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers as? HTTPHeaders
+            ).validate().responseDecodableObject(keyPath: "data") {
+                (response: DataResponse<Show>) in
+                SVProgressHUD.dismiss()
+                switch response.result {
+                case .success(let user):
+                    print("Success: \(user)")
+                case .failure(let error):
+                    print("API failure: \(error)")
+                }
+            }
+        }
+    }
+
+

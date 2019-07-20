@@ -24,11 +24,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpE-XU-ssp">
+                                <rect key="frame" x="191" y="357" width="32" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Tap"/>
+                                <connections>
+                                    <action selector="buttonTaped:" destination="zMX-e6-8Ft" eventType="touchUpInside" id="CYC-nB-T7v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="x08-Rw-43S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iil-ZW-QfH" secondAttribute="leading" constant="20" id="6Hj-jl-vOs"/>
                             <constraint firstItem="iil-ZW-QfH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x08-Rw-43S" secondAttribute="trailing" constant="20" id="Qp3-yT-dQB"/>
+                            <constraint firstItem="x08-Rw-43S" firstAttribute="top" secondItem="PpE-XU-ssp" secondAttribute="bottom" constant="40" id="Win-e5-UCh"/>
+                            <constraint firstItem="PpE-XU-ssp" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="dxJ-vc-XDj"/>
                             <constraint firstItem="x08-Rw-43S" firstAttribute="centerX" secondItem="deU-se-kUE" secondAttribute="centerX" id="mRo-gP-vy9"/>
                             <constraint firstItem="x08-Rw-43S" firstAttribute="centerY" secondItem="deU-se-kUE" secondAttribute="centerY" id="tIU-sH-EtB"/>
                         </constraints>

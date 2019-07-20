@@ -70,6 +70,12 @@ final class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+
+    private func loginFailureAlert() {
+        let alert = UIAlertController(title: "Wrong user name or password", message: "Please check your username and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
     
     private func navigateToHome(token: String) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -126,8 +132,10 @@ final class LoginViewController: UIViewController {
                 case .success(let user):
                     print("Success: \(user)")
                     self?.navigateToHome(token: user.token)
+                    SVProgressHUD.showSuccess(withStatus: "Success")
                 case .failure(let error):
                     print("API failure: \(error)")
+                    self?.loginFailureAlert()
                 }
             }
         }

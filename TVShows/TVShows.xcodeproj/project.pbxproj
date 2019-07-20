@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12770AF22E35354000B5B68 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770AE22E35354000B5B68 /* Show.swift */; };
 		C197238522DCBB9D00219915 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C197238422DCBB9D00219915 /* Home.storyboard */; };
 		C19F580122DDA2A100A18A49 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580022DDA2A100A18A49 /* User.swift */; };
 		C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580222DDA3A900A18A49 /* LoginData.swift */; };
@@ -23,6 +24,7 @@
 		028ED9198E30D283649CFF10 /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		86FF75883ACCA860CEF8CF14 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
+		C12770AE22E35354000B5B68 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		C197238422DCBB9D00219915 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		C19F580022DDA2A100A18A49 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C19F580222DDA3A900A18A49 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				C197238422DCBB9D00219915 /* Home.storyboard */,
 				C1A48EF822DB7C6C00856BB1 /* HomeViewController.swift */,
+				C12770AE22E35354000B5B68 /* Show.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12770AF22E35354000B5B68 /* Show.swift in Sources */,
 				C1C1C23E22D0D6700038156E /* LoginViewController.swift in Sources */,
 				C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */,
 				C19F580122DDA2A100A18A49 /* User.swift in Sources */,
