@@ -13,10 +13,10 @@ import CodableAlamofire
 
 final class HomeViewController: UIViewController {
 
-    
     // MARK: - Properties
     
     var token: String?
+    var showID: String?
     private var listOfShows = [Show]()
     private var listOfTVShowItems = [TVShowItem]()
     
@@ -29,7 +29,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Shows"
-        self.navigationItem.hidesBackButton = true
         _getShowsList()
         setupTableView()
     }
@@ -44,16 +43,23 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Private functions
     
+    private func navigateToDetails(token: String, id: String) {
+        let storyboard = UIStoryboard(name: "Details", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ShowDetailsViewController") as! ShowDetailsViewController
+        viewController.token = token
+        viewController.showID = id
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    // MARK: - TableView deleting row
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             listOfTVShowItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
-  
 }
-
-
 
     // MARK: - ShowList fetching and saving in listOfTVShowsItems
 
@@ -77,9 +83,10 @@ final class HomeViewController: UIViewController {
                         for show in shows {
                             self.listOfShows.append(show)
                             print(show.title)
-                            var showItem = TVShowItem(image: UIImage(named: "icImagePlaceholder"), title: "No title")
+                            var showItem = TVShowItem(image: UIImage(named: "icImagePlaceholder"), title: "No title", id: "No ID")
                             showItem.image = UIImage(named: "icImagePlaceholder")
                             showItem.title = show.title
+                            showItem.id = show._id
                             self.listOfTVShowItems.append(showItem)
                             self.tableView.reloadData()
                         }
@@ -107,13 +114,16 @@ final class HomeViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             let item = listOfTVShowItems[indexPath.row]
             print("Selected Item: \(item)")
+            showID = item.id
+            if let token = token, let id = showID {
+                navigateToDetails(token: token, id: id)
+            }
         }
     }
 
     extension HomeViewController: UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // We need to tell the table view, how many rows we have in each section, because we only have one section now, we can just return our items count.
             return listOfTVShowItems.count
         }
         

@@ -14,4 +14,3 @@ struct Show: Decodable {
     let imageUrl: String
     let likesCount: Int
 }
-

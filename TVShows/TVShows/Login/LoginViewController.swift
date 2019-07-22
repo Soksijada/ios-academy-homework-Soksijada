@@ -81,7 +81,7 @@ final class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         viewController.token = token
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 }
 

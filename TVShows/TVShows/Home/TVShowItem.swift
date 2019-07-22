@@ -12,4 +12,5 @@ import UIKit
 struct TVShowItem {
     var image: UIImage?
     var title: String
+    var id: String
 }
