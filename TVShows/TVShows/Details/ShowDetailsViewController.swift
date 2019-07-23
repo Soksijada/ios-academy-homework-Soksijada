@@ -13,23 +13,46 @@ import CodableAlamofire
 
 class ShowDetailsViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var roundButton: UIButton!
     
+    // MARK: - Properties
     
     var token: String?
     var showID: String = "No ID"
+    private var episodes: [Episode] = []
     
-    var episodes: [Episode] = []
+    // MARK: - Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("This is your showID: \(showID)")
-        _getShowsTitleAndDescription()
+        configureUI()
+        getShowsTitleAndDescription()
+        getListOfEpisodes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    // MARK: - Private functions
+    
+    public func configureUI() {
+        roundButton.layer.cornerRadius = 25
+        backButton.layer.cornerRadius = 20
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func navigateBack() {
+        navigationController?.popViewController(animated: true)
     }
 }
-
 
     private extension ShowDetailsViewController {
         func setTableView() {
@@ -71,7 +94,7 @@ class ShowDetailsViewController: UIViewController {
             }
 
     private extension ShowDetailsViewController {
-        func _getShowsTitleAndDescription() {
+        func getShowsTitleAndDescription() {
             SVProgressHUD.show()
             
             Alamofire
@@ -79,7 +102,8 @@ class ShowDetailsViewController: UIViewController {
                     "https://api.infinum.academy/api/shows/\(showID)",
                     method: .get,
                     encoding: JSONEncoding.default
-                ).validate().responseDecodableObject(keyPath: "data") {
+                ).validate()
+                .responseDecodableObject(keyPath: "data") {
                     (response: DataResponse<ShowInfo>) in
                     SVProgressHUD.dismiss()
                     switch response.result {
@@ -89,5 +113,28 @@ class ShowDetailsViewController: UIViewController {
                         print("API failure: \(error)")
                     }
                 }
+            }
+        }
+
+private extension ShowDetailsViewController {
+    func getListOfEpisodes() {
+        SVProgressHUD.show()
+        
+        Alamofire
+            .request(
+                "https://api.infinum.academy/api/shows/\(showID)/episodes",
+                method: .get,
+                encoding: JSONEncoding.default
+            ).validate()
+            .responseDecodableObject(keyPath: "data") {
+                (response: DataResponse<[Episode]>) in
+                SVProgressHUD.dismiss()
+                switch response.result {
+                case .success(let episodes):
+                    print("This is your show info: \(episodes)")
+                case .failure(let error):
+                    print("API failure: \(error)")
+                }
         }
     }
+}

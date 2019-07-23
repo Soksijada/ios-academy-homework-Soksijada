@@ -72,18 +72,48 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86h-1z-nSX">
+                                <rect key="frame" x="314" y="762" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Zw7-R1-RW0"/>
+                                    <constraint firstAttribute="height" constant="50" id="xv1-uW-NeJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="+"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-ex-CZT">
+                                <rect key="frame" x="30" y="118" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="E5i-Fo-65l"/>
+                                    <constraint firstAttribute="width" constant="40" id="vtx-3K-ZSw"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="←"/>
+                                <connections>
+                                    <action selector="navigateBack" destination="EPT-YZ-ENy" eventType="touchUpInside" id="GUw-lS-DpS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5Cn-ZM-Xgd" firstAttribute="top" secondItem="Cbm-ZL-GOo" secondAttribute="top" id="34M-aQ-XUD"/>
                             <constraint firstItem="5Cn-ZM-Xgd" firstAttribute="leading" secondItem="Cbm-ZL-GOo" secondAttribute="leading" id="42Z-Ot-HiA"/>
+                            <constraint firstItem="Tlc-ex-CZT" firstAttribute="top" secondItem="Cbm-ZL-GOo" secondAttribute="top" constant="30" id="972-ju-xpX"/>
+                            <constraint firstItem="Cbm-ZL-GOo" firstAttribute="bottom" secondItem="86h-1z-nSX" secondAttribute="bottom" constant="50" id="Ctt-eO-rPc"/>
                             <constraint firstItem="Cbm-ZL-GOo" firstAttribute="trailing" secondItem="5Cn-ZM-Xgd" secondAttribute="trailing" id="FSE-5b-oAb"/>
+                            <constraint firstItem="Cbm-ZL-GOo" firstAttribute="trailing" secondItem="86h-1z-nSX" secondAttribute="trailing" constant="50" id="Kse-Jl-jbY"/>
                             <constraint firstItem="Cbm-ZL-GOo" firstAttribute="bottom" secondItem="5Cn-ZM-Xgd" secondAttribute="bottom" id="prQ-in-yyQ"/>
+                            <constraint firstItem="Tlc-ex-CZT" firstAttribute="leading" secondItem="Cbm-ZL-GOo" secondAttribute="leading" constant="30" id="zmj-Fy-OWi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbm-ZL-GOo"/>
                     </view>
                     <navigationItem key="navigationItem" id="FX9-Da-mjj"/>
                     <connections>
+                        <outlet property="backButton" destination="Tlc-ex-CZT" id="xSE-5R-AZo"/>
+                        <outlet property="roundButton" destination="86h-1z-nSX" id="GRG-UV-dWo"/>
                         <outlet property="tableView" destination="5Cn-ZM-Xgd" id="Sgc-Cu-Ozr"/>
                     </connections>
                 </viewController>

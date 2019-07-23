@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Episode {
+struct Episode: Decodable {
     let _id: String
     let title: String
     let description: String
     let imageUrl: String
-    let episodeNumber: Int
-    let season: Int
+    let episodeNumber: String
+    let season: String
 }
