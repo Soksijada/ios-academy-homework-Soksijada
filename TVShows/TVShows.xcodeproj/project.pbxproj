@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C108AD5222E5E6EC006B7C67 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */; };
 		C108AD5422E5E707006B7C67 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C108AD5322E5E707006B7C67 /* Details.storyboard */; };
+		C11AD04622E736B600B21A29 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04522E736B600B21A29 /* Episode.swift */; };
+		C11AD04822E7385E00B21A29 /* ShowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04722E7385E00B21A29 /* ShowInfo.swift */; };
+		C11AD04A22E73D1B00B21A29 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */; };
 		C12770AF22E35354000B5B68 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770AE22E35354000B5B68 /* Show.swift */; };
 		C12770B122E45DF8000B5B68 /* TVShowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770B022E45DF8000B5B68 /* TVShowItem.swift */; };
 		C12770B322E4614C000B5B68 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770B222E4614C000B5B68 /* TVShowTableViewCell.swift */; };
@@ -30,6 +33,9 @@
 		8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
 		C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
 		C108AD5322E5E707006B7C67 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		C11AD04522E736B600B21A29 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		C11AD04722E7385E00B21A29 /* ShowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfo.swift; sourceTree = "<group>"; };
+		C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		C12770AE22E35354000B5B68 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		C12770B022E45DF8000B5B68 /* TVShowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowItem.swift; sourceTree = "<group>"; };
 		C12770B222E4614C000B5B68 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 			children = (
 				C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */,
 				C108AD5322E5E707006B7C67 /* Details.storyboard */,
+				C11AD04522E736B600B21A29 /* Episode.swift */,
+				C11AD04722E7385E00B21A29 /* ShowInfo.swift */,
+				C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -259,11 +268,14 @@
 				C12770AF22E35354000B5B68 /* Show.swift in Sources */,
 				C1C1C23E22D0D6700038156E /* LoginViewController.swift in Sources */,
 				C12770B322E4614C000B5B68 /* TVShowTableViewCell.swift in Sources */,
+				C11AD04622E736B600B21A29 /* Episode.swift in Sources */,
 				C12770B122E45DF8000B5B68 /* TVShowItem.swift in Sources */,
 				C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */,
 				C19F580122DDA2A100A18A49 /* User.swift in Sources */,
 				C1AC8A6C22CE53DC000075BD /* AppDelegate.swift in Sources */,
+				C11AD04A22E73D1B00B21A29 /* DescriptionCell.swift in Sources */,
 				C108AD5222E5E6EC006B7C67 /* ShowDetailsViewController.swift in Sources */,
+				C11AD04822E7385E00B21A29 /* ShowInfo.swift in Sources */,
 				C1A48EF922DB7C6C00856BB1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

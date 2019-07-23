@@ -17,7 +17,6 @@ final class HomeViewController: UIViewController {
     
     var token: String?
     var showID: String?
-    private var listOfShows = [Show]()
     private var listOfTVShowItems = [TVShowItem]()
     
     // MARK: - Outlets
@@ -80,16 +79,14 @@ final class HomeViewController: UIViewController {
                     switch response.result {
                     case .success(let shows):
                         print("Success this is your show list:")
-                        for show in shows {
-                            self.listOfShows.append(show)
-                            print(show.title)
+                        self.listOfTVShowItems = shows.map { show in
                             var showItem = TVShowItem(image: UIImage(named: "icImagePlaceholder"), title: "No title", id: "No ID")
                             showItem.image = UIImage(named: "icImagePlaceholder")
                             showItem.title = show.title
                             showItem.id = show._id
-                            self.listOfTVShowItems.append(showItem)
-                            self.tableView.reloadData()
+                            return showItem
                         }
+                        self.tableView.reloadData()
                     case .failure(let error):
                         print("API failure: \(error)")
                     }
@@ -99,15 +96,15 @@ final class HomeViewController: UIViewController {
 
     // MARK: - Setting up table view
 
-        private extension HomeViewController {
-            func setupTableView() {
-                tableView.estimatedRowHeight = 110
-                tableView.rowHeight = UITableView.automaticDimension
-                tableView.tableFooterView = UIView()
-                tableView.delegate = self
-                tableView.dataSource = self
+            private extension HomeViewController {
+                func setupTableView() {
+                    tableView.estimatedRowHeight = 110
+                    tableView.rowHeight = UITableView.automaticDimension
+                    tableView.tableFooterView = UIView()
+                    tableView.delegate = self
+                    tableView.dataSource = self
+                }
             }
-        }
 
     extension HomeViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
