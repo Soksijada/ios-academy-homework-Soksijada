@@ -41,8 +41,6 @@ class HomeViewController: UIViewController {
     }
 }
 
-
-
 // MARK: - Login + Automatic JSON parsing
 
 private extension HomeViewController {
@@ -68,5 +66,3 @@ private extension HomeViewController {
             }
         }
     }
-
-

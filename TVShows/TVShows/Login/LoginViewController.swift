@@ -44,7 +44,7 @@ final class LoginViewController: UIViewController {
             missingInputAlert()
             return
         }
-        _almofireCodableRegisterUserWith(email: email, password: password)
+        RegisterUserWith(email: email, password: password)
     }
     
     @IBAction private func logInTouched() {
@@ -89,7 +89,7 @@ final class LoginViewController: UIViewController {
     
     private extension LoginViewController {
         
-        func _almofireCodableRegisterUserWith(email: String, password: String) {
+        func RegisterUserWith(email: String, password: String) {
             SVProgressHUD.show()
             
             let parameters: [String: String] = [
@@ -97,14 +97,19 @@ final class LoginViewController: UIViewController {
                 "password": password
             ]
             
-            Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
+            Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
                     [weak self]
                     (response: DataResponse<User>) in
                     SVProgressHUD.dismiss()
                     switch response.result {
                     case .success(let user):
                         print("Success: \(user)")
-                        self?._loginUserWith(email: self!.userNameTextField.text!, password: self!.passwordTextField.text!)
+                        guard let self = self else {
+                            return
+                        }
+                        self._loginUserWith(email: self.userNameTextField.text!, password: self.passwordTextField.text!)
                     case .failure(let error):
                         print("API failure: \(error)")
                     }
@@ -124,14 +129,19 @@ final class LoginViewController: UIViewController {
                 "password": password
             ]
             
-            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data") {
+            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data") {
                 [weak self]
                 (response: DataResponse<LoginData>) in
                 SVProgressHUD.dismiss()
                 switch response.result {
                 case .success(let user):
                     print("Success: \(user)")
-                    self?.navigateToHome(token: user.token)
+                    guard let self = self else {
+                        return
+                    }
+                    self.navigateToHome(token: user.token)
                     SVProgressHUD.showSuccess(withStatus: "Success")
                 case .failure(let error):
                     print("API failure: \(error)")
@@ -140,5 +150,3 @@ final class LoginViewController: UIViewController {
             }
         }
     }
-
-
