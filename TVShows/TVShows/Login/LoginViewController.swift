@@ -7,50 +7,146 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
+import CodableAlamofire
 
 final class LoginViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var label: UILabel!
-    @IBOutlet private weak var button: UIButton!
-    
-    // MARK: - Proporties
-    
-    private var numberOfTaps = 0
+    @IBOutlet private weak var logInButton: UIButton!
+    @IBOutlet private weak var userNameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     // MARK: - Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        activityIndicator.startAnimating()  // Starting animation of activityIndicator
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.activityIndicator.stopAnimating()
-        }  // Delaying stopIndicator function
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     // MARK: - Actions
     
-    private func configureUI() {
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
-        label.layer.cornerRadius = 5
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.black.cgColor
+    @IBAction private func rememberMeBoxTouched(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
     
-    @IBAction private func buttonTouched() {
-        numberOfTaps += 1
-        label.text = "Number of taps: \(numberOfTaps)"
-        if activityIndicator.isHidden {
-            activityIndicator.startAnimating()
-            button.setTitle("Stop", for: UIControl.State.normal)
-        } else {
-            activityIndicator.stopAnimating()
-            button.setTitle("Start", for: UIControl.State.normal)
+    @IBAction private func createAnAccountTouched() {
+        guard let email = userNameTextField.text, let password = passwordTextField.text, !email.isEmpty, !password.isEmpty else {
+            missingInputAlert()
+            return
         }
+        RegisterUserWith(email: email, password: password)
+    }
+    
+    @IBAction private func logInTouched() {
+        guard let email = userNameTextField.text, let password = passwordTextField.text, !email.isEmpty, !password.isEmpty else {
+            missingInputAlert()
+            return
+        }
+        _loginUserWith(email: email, password: password)
+    }
+    
+    // MARK: - Private functions
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func configureUI() {
+        logInButton.layer.cornerRadius = 10
+    }
+    
+    private func missingInputAlert() {
+        let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+
+    private func loginFailureAlert() {
+        let alert = UIAlertController(title: "Wrong user name or password", message: "Please check your username and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    private func navigateToHome(token: String) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+         viewController.token = token
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+    // MARK: - Register + Automatic JSON parsing
+    
+    private extension LoginViewController {
+        
+        func RegisterUserWith(email: String, password: String) {
+            SVProgressHUD.show()
+            
+            let parameters: [String: String] = [
+                "email": email,
+                "password": password
+            ]
+            
+            Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
+                    [weak self]
+                    (response: DataResponse<User>) in
+                    SVProgressHUD.dismiss()
+                    switch response.result {
+                    case .success(let user):
+                        print("Success: \(user)")
+                        guard let self = self else {
+                            return
+                        }
+                        self._loginUserWith(email: self.userNameTextField.text!, password: self.passwordTextField.text!)
+                    case .failure(let error):
+                        print("API failure: \(error)")
+                    }
+                }
+            }
+        }
+
+    // MARK: - Login + Automatic JSON parsing
+
+    private extension LoginViewController {
+        
+        func _loginUserWith(email: String, password: String){
+            SVProgressHUD.show()
+            
+            let parameters: [String: String] = [
+                "email": email,
+                "password": password
+            ]
+            
+            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data") {
+                [weak self]
+                (response: DataResponse<LoginData>) in
+                SVProgressHUD.dismiss()
+                switch response.result {
+                case .success(let user):
+                    print("Success: \(user)")
+                    guard let self = self else {
+                        return
+                    }
+                    self.navigateToHome(token: user.token)
+                    SVProgressHUD.showSuccess(withStatus: "Success")
+                case .failure(let error):
+                    print("API failure: \(error)")
+                    self?.loginFailureAlert()
+                }
+            }
+        }
+    }
