@@ -39,7 +39,7 @@
                                                                 <constraint firstAttribute="height" priority="999" constant="100" id="Xad-q4-1ah"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ew-9k-5Ok">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ew-9k-5Ok">
                                                             <rect key="frame" x="140" y="0.0" width="234" height="99.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iil-ZW-QfH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="B8r-zD-AIk"/>
+                    <navigationItem key="navigationItem" title="Shows" id="B8r-zD-AIk"/>
                     <connections>
                         <outlet property="tableView" destination="mVh-2b-ceV" id="WbA-39-toQ"/>
                     </connections>

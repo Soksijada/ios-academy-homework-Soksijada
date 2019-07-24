@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show Details View Controller-->
+        <!--Show details-->
         <scene sceneID="nTF-Hh-p9y">
             <objects>
                 <viewController storyboardIdentifier="ShowDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPT-YZ-ENy" customClass="ShowDetailsViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,6 +82,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="goToNewEpisodeScreen" destination="EPT-YZ-ENy" eventType="touchUpInside" id="rEp-T9-4UD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-ex-CZT">
                                 <rect key="frame" x="30" y="118" width="40" height="40"/>
@@ -110,7 +113,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbm-ZL-GOo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FX9-Da-mjj"/>
+                    <navigationItem key="navigationItem" title="Show details" id="FX9-Da-mjj"/>
                     <connections>
                         <outlet property="backButton" destination="Tlc-ex-CZT" id="xSE-5R-AZo"/>
                         <outlet property="roundButton" destination="86h-1z-nSX" id="GRG-UV-dWo"/>

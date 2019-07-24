@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C108AD5222E5E6EC006B7C67 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */; };
 		C108AD5422E5E707006B7C67 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C108AD5322E5E707006B7C67 /* Details.storyboard */; };
+		C10B29F622E831D900E6C9F7 /* NewEpisode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */; };
+		C10B29F822E8321100E6C9F7 /* NewEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */; };
 		C11AD04622E736B600B21A29 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04522E736B600B21A29 /* Episode.swift */; };
 		C11AD04822E7385E00B21A29 /* ShowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04722E7385E00B21A29 /* ShowInfo.swift */; };
 		C11AD04A22E73D1B00B21A29 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */; };
@@ -33,6 +35,8 @@
 		8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
 		C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
 		C108AD5322E5E707006B7C67 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEpisode.storyboard; sourceTree = "<group>"; };
+		C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewController.swift; sourceTree = "<group>"; };
 		C11AD04522E736B600B21A29 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		C11AD04722E7385E00B21A29 /* ShowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfo.swift; sourceTree = "<group>"; };
 		C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
@@ -93,6 +97,15 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		C10B29F422E8311A00E6C9F7 /* NewEpisode */ = {
+			isa = PBXGroup;
+			children = (
+				C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */,
+				C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */,
+			);
+			path = NewEpisode;
+			sourceTree = "<group>";
+		};
 		C197238322DCBA8300219915 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +139,7 @@
 		C1AC8A6A22CE53DC000075BD /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				C10B29F422E8311A00E6C9F7 /* NewEpisode */,
 				C108AD5022E5E6B6006B7C67 /* Details */,
 				C197238322DCBA8300219915 /* Home */,
 				C1C1C23622D0CE370038156E /* Login */,
@@ -211,6 +225,7 @@
 				C108AD5422E5E707006B7C67 /* Details.storyboard in Resources */,
 				C1AC8A7622CE53DD000075BD /* LaunchScreen.storyboard in Resources */,
 				C1AC8A7322CE53DD000075BD /* Assets.xcassets in Resources */,
+				C10B29F622E831D900E6C9F7 /* NewEpisode.storyboard in Resources */,
 				C1C1C23822D0CEAC0038156E /* Login.storyboard in Resources */,
 				C197238522DCBB9D00219915 /* Home.storyboard in Resources */,
 			);
@@ -270,6 +285,7 @@
 				C12770B322E4614C000B5B68 /* TVShowTableViewCell.swift in Sources */,
 				C11AD04622E736B600B21A29 /* Episode.swift in Sources */,
 				C12770B122E45DF8000B5B68 /* TVShowItem.swift in Sources */,
+				C10B29F822E8321100E6C9F7 /* NewEpisodeViewController.swift in Sources */,
 				C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */,
 				C19F580122DDA2A100A18A49 /* User.swift in Sources */,
 				C1AC8A6C22CE53DC000075BD /* AppDelegate.swift in Sources */,

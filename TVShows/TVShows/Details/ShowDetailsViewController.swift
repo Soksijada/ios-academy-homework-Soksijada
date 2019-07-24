@@ -52,6 +52,15 @@ class ShowDetailsViewController: UIViewController {
     @IBAction private func navigateBack() {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction private func goToNewEpisodeScreen() {
+        let storyboard = UIStoryboard(name: "NewEpisode", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "NewEpisodeViewController") as! NewEpisodeViewController
+        viewController.token = token
+        viewController.showID = showID
+        navigationController?.present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
     private extension ShowDetailsViewController {
