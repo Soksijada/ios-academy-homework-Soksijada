@@ -8,17 +8,35 @@
 
 import UIKit
 
-class DescriptionCell: UITableViewCell {
+final class DescriptionCell: UITableViewCell {
+    
+    // MARK: - Properties
+    
+    var episodesCount = 54
+    
+    // MARK: - Outlets
 
+    @IBOutlet private weak var showTitleLabel: UILabel!
+    @IBOutlet private weak var showDescriptionLabel: UILabel!
+    @IBOutlet private weak var episodesLabel: UILabel!
+    
+    // MARK: - Lifecycle methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        showTitleLabel.text = nil
+        showDescriptionLabel.text = nil
     }
+}
 
+extension DescriptionCell {
+    func configure(with item: ShowInfo) {
+        showTitleLabel.text = item.title
+        showDescriptionLabel.text = item.description
+        episodesLabel.text = "Episodes: \(episodesCount)"
+    }
 }

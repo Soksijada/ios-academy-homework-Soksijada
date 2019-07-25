@@ -8,14 +8,16 @@
 
 import UIKit
 
-// Same as with our UIViewController subclass, if we want to customize our UITableViewCell we need custom subclass.
+
 final class TVShowTableViewCell: UITableViewCell {
     
-    // MARK: - Private UI
+    // MARK: - Outlets
+    
     @IBOutlet private weak var thumbnail: UIImageView!
     @IBOutlet private weak var title: UILabel!
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -28,19 +30,19 @@ final class TVShowTableViewCell: UITableViewCell {
     }
 }
 
-    // MARK: - Configure
+// MARK: - Configure
 
-    extension TVShowTableViewCell {
-        func configure(with item: TVShowItem) {
-            thumbnail.image = item.image ?? UIImage(named: "icImagePlaceholder")
-            title.text = item.title
-        }
+extension TVShowTableViewCell {
+    func configure(with item: TVShowItem) {
+        thumbnail.image = item.image ?? UIImage(named: "icImagePlaceholder")
+        title.text = item.title
     }
+}
 
-    // MARK: - Private
+// MARK: - Private
 
-    private extension TVShowTableViewCell {
-        func setupUI() {
-            thumbnail.layer.cornerRadius = 20
-        }
+private extension TVShowTableViewCell {
+    func setupUI() {
+        thumbnail.layer.cornerRadius = 20
     }
+}

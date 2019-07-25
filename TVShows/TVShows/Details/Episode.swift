@@ -9,10 +9,10 @@
 import Foundation
 
 struct Episode: Decodable {
-    let _id: String
-    let title: String
-    let description: String
-    let imageUrl: String
-    let episodeNumber: String
-    let season: String
+    var _id: String
+    var title: String
+    var description: String
+    var imageUrl: String
+    var episodeNumber: String
+    var season: String
 }
