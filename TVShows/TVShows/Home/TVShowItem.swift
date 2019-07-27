@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 struct TVShowItem {
-    var image: UIImage?
+    var image: UIImageView
     var title: String
     var id: String
+    var imageUrl: String
 }

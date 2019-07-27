@@ -19,6 +19,7 @@ final class DescriptionCell: UITableViewCell {
     @IBOutlet private weak var showTitleLabel: UILabel!
     @IBOutlet private weak var showDescriptionLabel: UILabel!
     @IBOutlet private weak var episodesLabel: UILabel!
+    @IBOutlet weak var episodeImage: UIImageView!
     
     // MARK: - Lifecycle methods
     
@@ -37,6 +38,8 @@ extension DescriptionCell {
     func configure(with item: ShowInfo) {
         showTitleLabel.text = item.title
         showDescriptionLabel.text = item.description
+        let url = URL(string: "https://api.infinum.academy" + "\(item.imageUrl)")
+        episodeImage.kf.setImage(with: url)
         episodesLabel.text = "Episodes: \(episodesCount)"
     }
 }

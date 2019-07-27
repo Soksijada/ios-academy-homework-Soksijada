@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 import CodableAlamofire
+import Kingfisher
 
 final class HomeViewController: UIViewController {
 
@@ -76,12 +77,13 @@ private extension HomeViewController {
                 case .success(let shows):
                     print("Success this is your show list:")
                     self.listOfTVShowItems = shows.map { show in
-                        var showItem = TVShowItem(image: UIImage(named: "icImagePlaceholder"), title: "No title", id: "No ID")
-                        showItem.image = UIImage(named: "icImagePlaceholder")
+                        var showItem = TVShowItem(image: UIImageView(image: UIImage(named: "icImagePlaceholder")), title: "No title", id: "No ID", imageUrl: "No url")
                         showItem.title = show.title
                         showItem.id = show._id
+                        showItem.imageUrl = show.imageUrl
                         return showItem
                     }
+                    print(shows)
                     self.tableView.reloadData()
                 case .failure(let error):
                     print("API failure: \(error)")

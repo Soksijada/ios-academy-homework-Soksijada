@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eaU-CA-APu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhZ-SN-XHr">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -173,17 +173,12 @@
                         <viewLayoutGuide key="safeArea" id="O7c-PD-CF0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Episode" id="eld-vB-7C2">
-                        <leftBarButtonItems>
-                            <barButtonItem id="CNR-M4-Pt7">
-                                <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </barButtonItem>
-                            <barButtonItem title="Cancle" springLoaded="YES" id="D74-mk-qqb">
-                                <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="cancleAddingShow" destination="8Y0-Fr-fHr" id="71q-19-Qy1"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Cancle" springLoaded="YES" id="D74-mk-qqb">
+                            <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancleAddingShow" destination="8Y0-Fr-fHr" id="71q-19-Qy1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" springLoaded="YES" id="EPp-6H-Gar">
                             <color key="tintColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -200,25 +195,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNl-c3-KN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652.1739130434785" y="85.714285714285708"/>
+            <point key="canvasLocation" x="4562.3188405797109" y="85.714285714285708"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ekg-JI-qjU">
+        <scene sceneID="Ons-cg-J1o">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eaU-CA-APu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vhZ-SN-XHr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J0F-V2-3zK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u4n-Sd-xdk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8Y0-Fr-fHr" kind="relationship" relationship="rootViewController" id="4Ye-3A-1qu"/>
+                        <segue destination="8Y0-Fr-fHr" kind="relationship" relationship="rootViewController" id="svc-KZ-9e5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yNH-nW-S56" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnY-S4-c61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2742.0289855072465" y="85.714285714285708"/>
+            <point key="canvasLocation" x="3652.1739130434785" y="85.714285714285708"/>
         </scene>
     </scenes>
     <resources>

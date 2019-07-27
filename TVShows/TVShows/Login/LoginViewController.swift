@@ -72,9 +72,9 @@ final class LoginViewController: UIViewController {
     }
 
     private func loginFailureAlert() {
-        let alert = UIAlertController(title: "Wrong user name or password", message: "Please check your username and password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true)
+        shakeAnimation(objectToShake: passwordTextField)
+        shakeAnimation(objectToShake: userNameTextField)
+        shakeAnimation(objectToShake: logInButton)
     }
     
     private func navigateToHome(token: String) {
@@ -82,6 +82,16 @@ final class LoginViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         viewController.token = token
         navigationController?.setViewControllers([viewController], animated: true)
+    }
+    
+    // MARK - Animations
+    
+    private func shakeAnimation(objectToShake: UIControl) {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        objectToShake.layer.add(animation, forKey: "shake")
     }
 }
 

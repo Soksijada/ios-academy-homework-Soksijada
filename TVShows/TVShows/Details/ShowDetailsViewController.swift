@@ -60,10 +60,10 @@ final class ShowDetailsViewController: UIViewController {
     @IBAction private func goToNewEpisodeScreen() {
         let storyboard = UIStoryboard(name: "NewEpisode", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "NewEpisodeViewController") as! NewEpisodeViewController
-        let nc = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: viewController)
         viewController.token = token
         viewController.showID = showID
-        present(nc, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
