@@ -23,10 +23,6 @@ final class DescriptionCell: UITableViewCell {
     
     // MARK: - Lifecycle methods
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         showTitleLabel.text = nil

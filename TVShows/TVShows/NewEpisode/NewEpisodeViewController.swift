@@ -28,7 +28,7 @@ final class NewEpisodeViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func cancleAddingShow() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addShow() {
@@ -62,6 +62,7 @@ final class NewEpisodeViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    
 }
 
 // MARK: - Making new episode + Automatic JSON parsing

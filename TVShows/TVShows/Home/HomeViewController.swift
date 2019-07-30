@@ -79,7 +79,7 @@ private extension HomeViewController {
                     self.listOfTVShowItems = shows.map { show in
                         var showItem = TVShowItem(image: UIImageView(image: UIImage(named: "icImagePlaceholder")), title: "No title", id: "No ID", imageUrl: "No url")
                         showItem.title = show.title
-                        showItem.id = show._id
+                        showItem.id = show.id
                         showItem.imageUrl = show.imageUrl
                         return showItem
                     }
