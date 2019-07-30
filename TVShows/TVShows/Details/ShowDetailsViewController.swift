@@ -79,7 +79,15 @@ private extension ShowDetailsViewController {
 extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "EpisodeDetails", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "EpisodeDetailsViewController") as! EpisodeDetailsViewController
+        if indexPath.row != 0 {
+            viewController.episode = episodes[indexPath.row - 1]
+            viewController.token = token
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return UITableView.automaticDimension
@@ -90,7 +98,6 @@ extension ShowDetailsViewController: UITableViewDelegate {
 }
 
 extension ShowDetailsViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count + 1
     }
@@ -99,7 +106,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DescriptionCell.self), for: indexPath) as! DescriptionCell
-            cell.configure(with: showInformation ?? ShowInfo(type: "", title: "No title", description: "No description", _id: "No ID", likesCount: 0, imageUrl: ""))
+            cell.configure(with: showInformation ?? ShowInfo(type: "", title: "No title", description: "No description", _id: "No ID", likesCount: 0, imageUrl: ""), episodes: episodes.count)
                 return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EpisodeTableViewCell.self), for: indexPath) as!   EpisodeTableViewCell

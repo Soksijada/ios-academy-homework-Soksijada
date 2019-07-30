@@ -22,37 +22,44 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjI-QG-ugi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="624"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fOe-Cr-N4x">
-                                                <rect key="frame" x="15" y="30" width="384" height="344"/>
+                                                <rect key="frame" x="15" y="30" width="384" height="564"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vXS-H4-luu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="344"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="564"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AaX-gJ-fUp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="320"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3H-RF-gSp">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="70"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-camera" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-1B-aON">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="250"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="250" id="iea-iH-NX6"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3H-RF-gSp" userLabel="Upload Photo Button">
+                                                                        <rect key="frame" x="0.0" y="250" width="384" height="70"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="70" id="c9A-e0-ElS"/>
                                                                         </constraints>
-                                                                        <state key="normal" image="ic-camera"/>
+                                                                        <state key="normal" title="Upload photo">
+                                                                            <color key="titleColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="addPhoto" destination="8Y0-Fr-fHr" eventType="touchUpInside" id="beL-cT-Jlf"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbW-fQ-nhI">
-                                                                        <rect key="frame" x="0.0" y="70" width="384" height="30"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="30" id="fnO-E1-nxa"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="kj4-1B-aON" firstAttribute="top" secondItem="AaX-gJ-fUp" secondAttribute="top" id="B5l-kl-jJa"/>
+                                                                    <constraint firstItem="kj4-1B-aON" firstAttribute="leading" secondItem="AaX-gJ-fUp" secondAttribute="leading" id="ccy-L1-grJ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="kj4-1B-aON" secondAttribute="trailing" id="xky-Br-Fq3"/>
+                                                                </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bQq-hO-g0R">
-                                                                <rect key="frame" x="0.0" y="130" width="384" height="214"/>
+                                                                <rect key="frame" x="0.0" y="350" width="384" height="214"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lOX-1V-t30">
                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="31"/>
@@ -64,7 +71,7 @@
                                                                                 </constraints>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-S6-gHQ">
                                                                                 <rect key="frame" x="0.0" y="30" width="384" height="1"/>
@@ -85,7 +92,7 @@
                                                                                 </constraints>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jG0-ui-1re">
                                                                                 <rect key="frame" x="0.0" y="30" width="384" height="1"/>
@@ -106,7 +113,7 @@
                                                                                 </constraints>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faK-B4-MJ1">
                                                                                 <rect key="frame" x="0.0" y="30" width="384" height="1"/>
@@ -127,7 +134,7 @@
                                                                                 </constraints>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XN-8V-026">
                                                                                 <rect key="frame" x="0.0" y="30" width="384" height="1"/>
@@ -190,12 +197,14 @@
                         <outlet property="episodeDescriptionTextField" destination="RI7-5D-jrw" id="lG9-uE-NBs"/>
                         <outlet property="episodeNumberTextField" destination="XgY-ir-0Rx" id="J9Y-v9-kaH"/>
                         <outlet property="episodeTitleTextField" destination="vcz-Po-hye" id="jcy-Pj-G4d"/>
+                        <outlet property="image" destination="kj4-1B-aON" id="AYs-rJ-6Gx"/>
                         <outlet property="seasonNumberTextField" destination="cRx-VH-OhZ" id="mXM-0S-cED"/>
+                        <outlet property="uploadPhotoButton" destination="F3H-RF-gSp" id="1ZB-fc-pW7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNl-c3-KN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4562.3188405797109" y="85.714285714285708"/>
+            <point key="canvasLocation" x="4536" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ons-cg-J1o">

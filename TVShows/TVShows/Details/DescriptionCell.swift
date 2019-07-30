@@ -10,10 +10,6 @@ import UIKit
 
 final class DescriptionCell: UITableViewCell {
     
-    // MARK: - Properties
-    
-    var episodesCount = 54
-    
     // MARK: - Outlets
 
     @IBOutlet private weak var showTitleLabel: UILabel!
@@ -34,12 +30,14 @@ final class DescriptionCell: UITableViewCell {
     }
 }
 
+// MARK: - Configure function
+
 extension DescriptionCell {
-    func configure(with item: ShowInfo) {
+    func configure(with item: ShowInfo, episodes: Int) {
         showTitleLabel.text = item.title
         showDescriptionLabel.text = item.description
         let url = URL(string: "https://api.infinum.academy" + "\(item.imageUrl)")
         episodeImage.kf.setImage(with: url)
-        episodesLabel.text = "Episodes: \(episodesCount)"
+        episodesLabel.text = "Episodes: \(episodes)"
     }
 }

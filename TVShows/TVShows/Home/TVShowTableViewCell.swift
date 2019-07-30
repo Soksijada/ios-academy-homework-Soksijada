@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 
-
 final class TVShowTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
@@ -31,7 +30,7 @@ final class TVShowTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: - Configure
+// MARK: - Configure function
 
 extension TVShowTableViewCell {
     func configure(with item: TVShowItem) {
@@ -41,7 +40,7 @@ extension TVShowTableViewCell {
     }
 }
 
-// MARK: - Private
+// MARK: - Setting up UI
 
 private extension TVShowTableViewCell {
     func setupUI() {

@@ -26,17 +26,33 @@ final class LoginViewController: UIViewController {
         configureUI()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        let username = UserDefaults.standard.string(forKey: "username")
+        let password = UserDefaults.standard.string(forKey: "password")
+        guard let username1 = username, let password1 = password else {
+            return
+        }
+        _loginUserWith(email: username1, password: password1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        passwordTextField.text = nil
+        userNameTextField.text = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        dismissKeyboard()
     }
     
     // MARK: - Actions
     
     @IBAction private func rememberMeBoxTouched(_ sender: UIButton) {
         sender.isSelected.toggle()
+        if sender.isSelected {
+            UserDefaults.standard.set(userNameTextField.text, forKey: "username")
+            UserDefaults.standard.set(passwordTextField.text, forKey: "password")
+        }
     }
     
     @IBAction private func createAnAccountTouched() {
@@ -65,7 +81,7 @@ final class LoginViewController: UIViewController {
         logInButton.layer.cornerRadius = 10
     }
     
-     func missingInputAlert() {
+     private func missingInputAlert() {
         let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
@@ -81,7 +97,7 @@ final class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         viewController.token = token
-        navigationController?.setViewControllers([viewController], animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     // MARK - Animations

@@ -11,15 +11,20 @@ import SVProgressHUD
 import Alamofire
 import CodableAlamofire
 
-final class NewEpisodeViewController: UIViewController {
+final class NewEpisodeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     
     var token: String?
     var showID: String = "No ID"
+    private var mediaId: String = "No media ID"
+    private var pickerImage: UIImage?
+    private var picker = UIImagePickerController()
     
     // MARK: - Outlets
-    
+
+    @IBOutlet private weak var image: UIImageView!
+    @IBOutlet private weak var uploadPhotoButton: UIButton!
     @IBOutlet private weak var episodeTitleTextField: UITextField!
     @IBOutlet private weak var seasonNumberTextField: UITextField!
     @IBOutlet private weak var episodeNumberTextField: UITextField!
@@ -27,22 +32,33 @@ final class NewEpisodeViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func cancleAddingShow() {
+    @IBAction private func addPhoto() {
+        present(picker,animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            let contentMode = UIView.ContentMode.self.scaleAspectFit
+            self.image.contentMode = contentMode
+        })
+    }
+    
+    @IBAction private func cancleAddingShow() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addShow() {
-        guard let episodeTitle = episodeTitleTextField.text, let seasonNumber = seasonNumberTextField.text, let episodeNumber = episodeNumberTextField.text, let episodeDescription = episodeDescriptionTextField.text, !episodeTitle.isEmpty, !seasonNumber.isEmpty, !episodeNumber.isEmpty, !episodeDescription.isEmpty  else {
-            missingInputAlert()
+    @IBAction private func addShow() {
+        guard pickerImage != nil else {
+            self.missingInputAlert()
             return
         }
-        makeNewEpisode(showId: showID, title: episodeTitle, description: episodeDescription, episodeNumber: episodeNumber, season: seasonNumber)
+        uploadImageOnAPI(token: token ?? "No token")
     }
     
     // MARK: - Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        configurePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +66,10 @@ final class NewEpisodeViewController: UIViewController {
     }
     
     // MARK: - Private functions
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     private func missingInputAlert() {
         let alert = UIAlertController(title: "Some fields are empty", message: "Please fill all the fields", preferredStyle: .alert)
@@ -62,17 +82,36 @@ final class NewEpisodeViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    
+    private func configurePicker() {
+        picker.delegate = self
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+             image.image = pickedImage
+            pickerImage = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        let contentMode = UIView.ContentMode.self.center
+        self.image.contentMode = contentMode
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Making new episode + Automatic JSON parsing
 
 private extension NewEpisodeViewController {
     
-    func makeNewEpisode(showId: String, title: String, description: String, episodeNumber: String, season: String) {
+    func makeNewEpisode(showId: String, mediaId: String, title: String, description: String, episodeNumber: String, season: String) {
         SVProgressHUD.show()
         
         let parameters: [String: String] = [
             "showId": showId,
+            "mediaId": mediaId,
             "title": title,
             "description": description,
             "episodeNumber": episodeNumber,
@@ -97,6 +136,52 @@ private extension NewEpisodeViewController {
             case .failure(let error):
                 print("API failure: \(error)")
                 self?.episodeAddingAlert()
+            }
+        }
+    }
+}
+
+private extension NewEpisodeViewController {
+    
+    func uploadImageOnAPI(token: String) {
+        let headers = ["Authorization": token]
+        let someUIImage = pickerImage!
+        let imageByteData = someUIImage.pngData()!
+        Alamofire
+            .upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(imageByteData,
+                                         withName: "file",
+                                         fileName: "image.png",
+                                         mimeType: "image/png")
+            }, to: "https://api.infinum.academy/api/media",
+               method: .post,
+               headers: headers)
+            { [weak self] result in
+                switch result {
+                case .success(let uploadRequest, _, _):
+                    self?.processUploadRequest(uploadRequest)
+                case .failure(let encodingError):
+                    print(encodingError)
+            }
+        }
+    }
+                
+    func processUploadRequest(_ uploadRequest: UploadRequest) {
+        uploadRequest
+            .responseDecodableObject(keyPath: "data") { (response:
+                DataResponse<Media>) in
+                switch response.result {
+                case .success(let media):
+                    self.mediaId = media._id
+                    print("DECODED: \(media)")
+                    print("Proceed to add episode call...")
+                    guard let episodeTitle = self.episodeTitleTextField.text, let seasonNumber = self.seasonNumberTextField.text, let episodeNumber = self.episodeNumberTextField.text, let episodeDescription = self.episodeDescriptionTextField.text, !episodeTitle.isEmpty, !seasonNumber.isEmpty, !episodeNumber.isEmpty, !episodeDescription.isEmpty else {
+                        self.missingInputAlert()
+                        return
+                    }
+                    self.makeNewEpisode(showId: self.showID, mediaId: self.mediaId, title: episodeTitle, description: episodeDescription, episodeNumber: episodeNumber, season: seasonNumber)
+                case .failure(let error):
+                    print("FAILURE: \(error)")
             }
         }
     }
