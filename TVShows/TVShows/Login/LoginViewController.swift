@@ -44,7 +44,7 @@ final class LoginViewController: UIViewController {
             missingInputAlert()
             return
         }
-        _almofireCodableRegisterUserWith(email: email, password: password)
+        RegisterUserWith(email: email, password: password)
     }
     
     @IBAction private func logInTouched() {
@@ -107,9 +107,10 @@ private extension LoginViewController {
             "password": password
         ]
         
-        Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
-                [weak self]
-            (response: DataResponse<User>) in
+        Alamofire
+            .request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) { [weak self] (response: DataResponse<User>) in
                 SVProgressHUD.dismiss()
                 switch response.result {
                 case .success(let user):
