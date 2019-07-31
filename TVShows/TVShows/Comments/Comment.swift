@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Comment: Decodable {
+struct Comment: Codable {
     var text: String
     var episodeId: String
     var userEmail: String
-    var _id: String
+    var id: String
+    
+    enum CodingKeys: String, CodingKey {
+        case text
+        case episodeId
+        case userEmail
+        case id = "_id"
+    }
 }

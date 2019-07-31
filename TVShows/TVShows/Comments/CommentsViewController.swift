@@ -15,6 +15,8 @@ final class CommentsViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var noCommentLabel: UILabel!
+    @IBOutlet weak var noCommentImage: UIImageView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var stackViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var commentTextField: UITextField!
@@ -51,7 +53,7 @@ final class CommentsViewController: UIViewController {
             SVProgressHUD.show()
             let headers = ["Authorization": token]
             let body: [String:String] = [ "text": commentTextField.text!,
-                                          "episodeId": episode?._id ?? "No id" ]
+                                          "episodeId": episode?.id ?? "No id" ]
             Alamofire
                 .request("https://api.infinum.academy/api/comments/",
                          method: .post,
@@ -110,14 +112,22 @@ final class CommentsViewController: UIViewController {
         refresherControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
         tableView.refreshControl = refresherControl
     }
+    
+    private func checkIfThereAreSomeComments() {
+        if self.listOfComments.count == 0 {
+            self.noCommentImage.isHidden = false
+            self.noCommentLabel.isHidden = false
+        } else {
+            self.noCommentImage.isHidden = true
+            self.noCommentLabel.isHidden = true
+        }
+    }
 }
 
 // MARK: - Setting up table view
 
 private extension CommentsViewController {
     func setupTableView() {
-        tableView.estimatedRowHeight = 110
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -127,6 +137,10 @@ private extension CommentsViewController {
 extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return UITableView.automaticDimension
     }
 }
 
@@ -151,7 +165,7 @@ private extension CommentsViewController {
         
         Alamofire
             .request(
-                "https://api.infinum.academy/api/episodes/\(episode?._id ?? "asca")/comments",
+                "https://api.infinum.academy/api/episodes/\(episode?.id ?? "asca")/comments",
                 method: .get,
                 encoding: JSONEncoding.default,
                 headers: headers as? HTTPHeaders
@@ -163,13 +177,14 @@ private extension CommentsViewController {
                 case .success(let comments):
                     print("Success this is your comment list:")
                     self.listOfComments = comments.map { commentInComments in
-                        var comment = Comment(text: "No text", episodeId: "No ID", userEmail: "No email", _id: "No ID")
+                        var comment = Comment(text: "No text", episodeId: "No ID", userEmail: "No email", id: "No ID")
                         comment.text = commentInComments.text
                         comment.episodeId = commentInComments.episodeId
                         comment.userEmail = commentInComments.userEmail
-                        comment._id = commentInComments._id
+                        comment.id = commentInComments.id
                         return comment
                     }
+                    self.checkIfThereAreSomeComments()
                     print(comments)
                     self.tableView.reloadData()
                 case .failure(let error):

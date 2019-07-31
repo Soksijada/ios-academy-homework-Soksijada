@@ -34,10 +34,6 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
     
     @IBAction private func addPhoto() {
         present(picker,animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            let contentMode = UIView.ContentMode.self.scaleAspectFit
-            self.image.contentMode = contentMode
-        })
     }
     
     @IBAction private func cancleAddingShow() {
@@ -94,12 +90,6 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
         }
         dismiss(animated: true, completion: nil)
     }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        let contentMode = UIView.ContentMode.self.center
-        self.image.contentMode = contentMode
-        picker.dismiss(animated: true, completion: nil)
-    }
 }
 
 // MARK: - Making new episode + Automatic JSON parsing
@@ -129,10 +119,6 @@ private extension NewEpisodeViewController {
             case .success(let newepisode):
                 print("New episode: \(newepisode)")
                 self?.dismiss(animated: true, completion: nil)
-                let storyboard = UIStoryboard(name: "Details", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "ShowDetailsViewController") as! ShowDetailsViewController
-                let episode = Episode(_id: newepisode.showId, title: newepisode.title, description: newepisode.description, imageUrl: "no url", episodeNumber: newepisode.episodeNumber, season: newepisode.season)
-                viewController.episodes.append(episode)
             case .failure(let error):
                 print("API failure: \(error)")
                 self?.episodeAddingAlert()
@@ -172,7 +158,7 @@ private extension NewEpisodeViewController {
                 DataResponse<Media>) in
                 switch response.result {
                 case .success(let media):
-                    self.mediaId = media._id
+                    self.mediaId = media.id
                     print("DECODED: \(media)")
                     print("Proceed to add episode call...")
                     guard let episodeTitle = self.episodeTitleTextField.text, let seasonNumber = self.seasonNumberTextField.text, let episodeNumber = self.episodeNumberTextField.text, let episodeDescription = self.episodeDescriptionTextField.text, !episodeTitle.isEmpty, !seasonNumber.isEmpty, !episodeNumber.isEmpty, !episodeDescription.isEmpty else {
@@ -182,6 +168,7 @@ private extension NewEpisodeViewController {
                     self.makeNewEpisode(showId: self.showID, mediaId: self.mediaId, title: episodeTitle, description: episodeDescription, episodeNumber: episodeNumber, season: seasonNumber)
                 case .failure(let error):
                     print("FAILURE: \(error)")
+                    self.episodeAddingAlert()
             }
         }
     }

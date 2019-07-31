@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class EpisodeDetailsViewController: UIViewController {
+final class EpisodeDetailsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Outlets
     
@@ -77,7 +77,6 @@ extension EpisodeDetailsViewController: UITableViewDelegate {
 }
 
 extension EpisodeDetailsViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -86,7 +85,7 @@ extension EpisodeDetailsViewController: UITableViewDataSource {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EpisodeDescriptionTableViewCell.self), for: indexPath) as! EpisodeDescriptionTableViewCell
-            cell.configure(with: episode ?? Episode(_id: "No id", title: "No title", description: "No description", imageUrl: "No url", episodeNumber: "No episode number", season: "No season"))
+            cell.configure(with: episode ?? Episode(id: "No id", title: "No title", description: "No description", imageUrl: "No url", episodeNumber: "No episode number", season: "No season"))
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentTableViewCell.self), for: indexPath) as! CommentTableViewCell

@@ -106,7 +106,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DescriptionCell.self), for: indexPath) as! DescriptionCell
-            cell.configure(with: showInformation ?? ShowInfo(type: "", title: "No title", description: "No description", _id: "No ID", likesCount: 0, imageUrl: ""), episodes: episodes.count)
+            cell.configure(with: showInformation ?? ShowInfo(type: "", title: "No title", description: "No description", id: "No ID", likesCount: 0, imageUrl: ""), episodes: episodes.count)
                 return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EpisodeTableViewCell.self), for: indexPath) as!   EpisodeTableViewCell
@@ -160,8 +160,8 @@ private extension ShowDetailsViewController {
                 switch response.result {
                 case .success(let episodes):
                     self.episodes = episodes.map { episode in
-                        var episodeItem = Episode(_id: "No ID", title: "No title", description: "No description", imageUrl: "No URL", episodeNumber: "No episode number", season: "No season ")
-                        episodeItem._id = episode._id
+                        var episodeItem = Episode(id: "No ID", title: "No title", description: "No description", imageUrl: "No URL", episodeNumber: "No episode number", season: "No season ")
+                        episodeItem.id = episode.id
                         episodeItem.title = episode.title
                         episodeItem.description = episode.description
                         episodeItem.imageUrl = episode.imageUrl

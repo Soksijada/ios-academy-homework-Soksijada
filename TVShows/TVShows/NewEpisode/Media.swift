@@ -9,5 +9,9 @@
 import Foundation
 
 struct Media: Codable {
-    let _id: String
+    let id: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+    }
 }

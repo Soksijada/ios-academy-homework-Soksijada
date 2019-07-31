@@ -18,39 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEg-hZ-W08">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEg-hZ-W08">
+                                <rect key="frame" x="0.0" y="88" width="414" height="709"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="100" id="v1v-4r-Psj" customClass="CommentCell" customModule="TVShows" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" id="v1v-4r-Psj" customClass="CommentCell" customModule="TVShows" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v1v-4r-Psj" id="NAx-Iq-wgp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cve-aR-pJg">
-                                                    <rect key="frame" x="15" y="10" width="384" height="79.5"/>
+                                                    <rect key="frame" x="15" y="10" width="384" height="23.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-placeholder-user1" translatesAutoresizingMaskIntoConstraints="NO" id="nRb-QH-Qgo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="79.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="23.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" priority="999" constant="50" id="Xc6-u2-Lgg"/>
                                                                 <constraint firstAttribute="width" constant="50" id="osJ-Uc-wj4"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="LfO-CY-LfP">
-                                                            <rect key="frame" x="70" y="0.0" width="314" height="79.5"/>
+                                                            <rect key="frame" x="70" y="0.0" width="314" height="23.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Marko Maric" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oke-6Y-gvA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Marko Maric" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oke-6Y-gvA">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="12"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="1" green="0.45882352939999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="This episode was dope." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTu-fX-bBX">
-                                                                    <rect key="frame" x="0.0" y="40" width="314" height="39.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="This episode was dope." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTu-fX-bBX">
+                                                                    <rect key="frame" x="0.0" y="12" width="314" height="11.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -112,6 +112,21 @@
                                     <constraint firstAttribute="height" constant="60" id="jtF-TI-e1X"/>
                                 </constraints>
                             </stackView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-placehoder-comments" translatesAutoresizingMaskIntoConstraints="NO" id="jpU-mW-5ea">
+                                <rect key="frame" x="0.0" y="88" width="414" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="9uL-TU-iev"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, there are no comments yet.                                          Be first who will write review." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JV0-Iz-p4m">
+                                <rect key="frame" x="0.0" y="283" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JHx-gk-3bL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -120,8 +135,14 @@
                             <constraint firstItem="OEg-hZ-W08" firstAttribute="leading" secondItem="POv-Vf-DWs" secondAttribute="leading" id="APO-kh-IQk"/>
                             <constraint firstItem="POv-Vf-DWs" firstAttribute="trailing" secondItem="pkO-gl-8hv" secondAttribute="trailing" constant="15" id="CM1-If-XFM"/>
                             <constraint firstItem="pkO-gl-8hv" firstAttribute="leading" secondItem="POv-Vf-DWs" secondAttribute="leading" constant="15" id="IDM-hd-jcK"/>
-                            <constraint firstItem="POv-Vf-DWs" firstAttribute="bottom" secondItem="OEg-hZ-W08" secondAttribute="bottom" id="ybu-oD-elD"/>
+                            <constraint firstItem="JV0-Iz-p4m" firstAttribute="top" secondItem="jpU-mW-5ea" secondAttribute="bottom" constant="10" id="Qkg-vP-iph"/>
+                            <constraint firstItem="POv-Vf-DWs" firstAttribute="trailing" secondItem="jpU-mW-5ea" secondAttribute="trailing" id="YvG-dA-LTi"/>
+                            <constraint firstItem="jpU-mW-5ea" firstAttribute="leading" secondItem="POv-Vf-DWs" secondAttribute="leading" id="aCf-Q8-u6c"/>
+                            <constraint firstItem="POv-Vf-DWs" firstAttribute="trailing" secondItem="JV0-Iz-p4m" secondAttribute="trailing" id="pIj-Oe-4gB"/>
+                            <constraint firstItem="jpU-mW-5ea" firstAttribute="top" secondItem="POv-Vf-DWs" secondAttribute="top" id="qfz-To-0Rs"/>
+                            <constraint firstItem="POv-Vf-DWs" firstAttribute="bottom" secondItem="OEg-hZ-W08" secondAttribute="bottom" constant="65" id="ybu-oD-elD"/>
                             <constraint firstItem="OEg-hZ-W08" firstAttribute="top" secondItem="POv-Vf-DWs" secondAttribute="top" id="ydO-KA-gg9"/>
+                            <constraint firstItem="JV0-Iz-p4m" firstAttribute="leading" secondItem="POv-Vf-DWs" secondAttribute="leading" id="zxB-XB-TH1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="POv-Vf-DWs"/>
                     </view>
@@ -135,6 +156,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="commentTextField" destination="hKg-Ya-VAe" id="dym-WN-plM"/>
+                        <outlet property="noCommentImage" destination="jpU-mW-5ea" id="5J0-fj-Hlx"/>
+                        <outlet property="noCommentLabel" destination="JV0-Iz-p4m" id="rxl-HA-bs6"/>
                         <outlet property="stackViewBottomConstraint" destination="45k-BX-ryC" id="jty-Cv-ltD"/>
                         <outlet property="tableView" destination="OEg-hZ-W08" id="eCu-Ja-lZB"/>
                     </connections>
@@ -163,6 +186,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="img-placehoder-comments" width="107" height="102"/>
         <image name="img-placeholder-user1" width="48" height="48"/>
     </resources>
 </document>
