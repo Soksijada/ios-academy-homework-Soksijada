@@ -65,88 +65,89 @@ final class LoginViewController: UIViewController {
         logInButton.layer.cornerRadius = 10
     }
     
-    private func missingInputAlert() {
+     func missingInputAlert() {
         let alert = UIAlertController(title: "Missing user name or password", message: "Please check your username and password", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 
     private func loginFailureAlert() {
-        let alert = UIAlertController(title: "Wrong user name or password", message: "Please check your username and password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true)
+        shakeAnimation(objectToShake: passwordTextField)
+        shakeAnimation(objectToShake: userNameTextField)
+        shakeAnimation(objectToShake: logInButton)
     }
     
     private func navigateToHome(token: String) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-         viewController.token = token
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.token = token
+        navigationController?.setViewControllers([viewController], animated: true)
+    }
+    
+    // MARK - Animations
+    
+    private func shakeAnimation(objectToShake: UIControl) {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        objectToShake.layer.add(animation, forKey: "shake")
     }
 }
 
-    // MARK: - Register + Automatic JSON parsing
+// MARK: - Register + Automatic JSON parsing
+
+private extension LoginViewController {
     
-    private extension LoginViewController {
+    func _almofireCodableRegisterUserWith(email: String, password: String) {
+        SVProgressHUD.show()
         
-        func RegisterUserWith(email: String, password: String) {
-            SVProgressHUD.show()
-            
-            let parameters: [String: String] = [
-                "email": email,
-                "password": password
-            ]
-            
-            Alamofire.request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-                .validate()
-                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) {
-                    [weak self]
-                    (response: DataResponse<User>) in
-                    SVProgressHUD.dismiss()
-                    switch response.result {
-                    case .success(let user):
-                        print("Success: \(user)")
-                        guard let self = self else {
-                            return
-                        }
-                        self._loginUserWith(email: self.userNameTextField.text!, password: self.passwordTextField.text!)
-                    case .failure(let error):
-                        print("API failure: \(error)")
-                    }
-                }
-            }
-        }
-
-    // MARK: - Login + Automatic JSON parsing
-
-    private extension LoginViewController {
+        let parameters: [String: String] = [
+            "email": email,
+            "password": password
+        ]
         
-        func _loginUserWith(email: String, password: String){
-            SVProgressHUD.show()
-            
-            let parameters: [String: String] = [
-                "email": email,
-                "password": password
-            ]
-            
-            Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-                .validate()
-                .responseDecodableObject(keyPath: "data") {
-                [weak self]
-                (response: DataResponse<LoginData>) in
+        Alamofire
+            .request("https://api.infinum.academy/api/users", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) { [weak self] (response: DataResponse<User>) in
                 SVProgressHUD.dismiss()
                 switch response.result {
                 case .success(let user):
                     print("Success: \(user)")
-                    guard let self = self else {
-                        return
-                    }
-                    self.navigateToHome(token: user.token)
-                    SVProgressHUD.showSuccess(withStatus: "Success")
+                    self?._loginUserWith(email: self!.userNameTextField.text!, password: self!.passwordTextField.text!)
                 case .failure(let error):
                     print("API failure: \(error)")
-                    self?.loginFailureAlert()
                 }
             }
         }
     }
+
+// MARK: - Login + Automatic JSON parsing
+
+private extension LoginViewController {
+    
+    func _loginUserWith(email: String, password: String){
+        SVProgressHUD.show()
+        
+        let parameters: [String: String] = [
+            "email": email,
+            "password": password
+        ]
+        
+        Alamofire.request("https://api.infinum.academy/api/users/sessions", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseDecodableObject(keyPath: "data") {
+            [weak self]
+            (response: DataResponse<LoginData>) in
+            SVProgressHUD.dismiss()
+            switch response.result {
+            case .success(let user):
+                print("Success: \(user)")
+                self?.navigateToHome(token: user.token)
+                SVProgressHUD.showSuccess(withStatus: "Success")
+            case .failure(let error):
+                print("API failure: \(error)")
+                self?.loginFailureAlert()
+            }
+        }
+    }
+}

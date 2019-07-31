@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C108AD5222E5E6EC006B7C67 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */; };
+		C108AD5422E5E707006B7C67 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C108AD5322E5E707006B7C67 /* Details.storyboard */; };
+		C10B29F622E831D900E6C9F7 /* NewEpisode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */; };
+		C10B29F822E8321100E6C9F7 /* NewEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */; };
+		C10BBE5422E8BD6100BDB325 /* NewEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10BBE5322E8BD6100BDB325 /* NewEpisode.swift */; };
+		C10BBE5922EA1F1B00BDB325 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10BBE5822EA1F1B00BDB325 /* EpisodeTableViewCell.swift */; };
+		C11AD04622E736B600B21A29 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04522E736B600B21A29 /* Episode.swift */; };
+		C11AD04822E7385E00B21A29 /* ShowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04722E7385E00B21A29 /* ShowInfo.swift */; };
+		C11AD04A22E73D1B00B21A29 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */; };
 		C12770AF22E35354000B5B68 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770AE22E35354000B5B68 /* Show.swift */; };
+		C12770B122E45DF8000B5B68 /* TVShowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770B022E45DF8000B5B68 /* TVShowItem.swift */; };
+		C12770B322E4614C000B5B68 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12770B222E4614C000B5B68 /* TVShowTableViewCell.swift */; };
 		C197238522DCBB9D00219915 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C197238422DCBB9D00219915 /* Home.storyboard */; };
 		C19F580122DDA2A100A18A49 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580022DDA2A100A18A49 /* User.swift */; };
 		C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F580222DDA3A900A18A49 /* LoginData.swift */; };
@@ -24,7 +35,18 @@
 		028ED9198E30D283649CFF10 /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		86FF75883ACCA860CEF8CF14 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5D0AA9C8F5087D12E8C430 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
+		C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
+		C108AD5322E5E707006B7C67 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEpisode.storyboard; sourceTree = "<group>"; };
+		C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewController.swift; sourceTree = "<group>"; };
+		C10BBE5322E8BD6100BDB325 /* NewEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisode.swift; sourceTree = "<group>"; };
+		C10BBE5822EA1F1B00BDB325 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		C11AD04522E736B600B21A29 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		C11AD04722E7385E00B21A29 /* ShowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfo.swift; sourceTree = "<group>"; };
+		C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		C12770AE22E35354000B5B68 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		C12770B022E45DF8000B5B68 /* TVShowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowItem.swift; sourceTree = "<group>"; };
+		C12770B222E4614C000B5B68 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		C197238422DCBB9D00219915 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		C19F580022DDA2A100A18A49 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C19F580222DDA3A900A18A49 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
@@ -67,12 +89,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C108AD5022E5E6B6006B7C67 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C108AD5122E5E6EC006B7C67 /* ShowDetailsViewController.swift */,
+				C108AD5322E5E707006B7C67 /* Details.storyboard */,
+				C11AD04522E736B600B21A29 /* Episode.swift */,
+				C11AD04722E7385E00B21A29 /* ShowInfo.swift */,
+				C11AD04922E73D1B00B21A29 /* DescriptionCell.swift */,
+				C10BBE5822EA1F1B00BDB325 /* EpisodeTableViewCell.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		C10B29F422E8311A00E6C9F7 /* NewEpisode */ = {
+			isa = PBXGroup;
+			children = (
+				C10B29F522E831D900E6C9F7 /* NewEpisode.storyboard */,
+				C10B29F722E8321100E6C9F7 /* NewEpisodeViewController.swift */,
+				C10BBE5322E8BD6100BDB325 /* NewEpisode.swift */,
+			);
+			path = NewEpisode;
+			sourceTree = "<group>";
+		};
+		C10BBE5522E9C31500BDB325 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C1AC8A6B22CE53DC000075BD /* AppDelegate.swift */,
+				C1AC8A7222CE53DD000075BD /* Assets.xcassets */,
+				C1AC8A7422CE53DD000075BD /* LaunchScreen.storyboard */,
+				C1AC8A7722CE53DD000075BD /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		C197238322DCBA8300219915 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				C197238422DCBB9D00219915 /* Home.storyboard */,
 				C1A48EF822DB7C6C00856BB1 /* HomeViewController.swift */,
 				C12770AE22E35354000B5B68 /* Show.swift */,
+				C12770B022E45DF8000B5B68 /* TVShowItem.swift */,
+				C12770B222E4614C000B5B68 /* TVShowTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -98,12 +156,11 @@
 		C1AC8A6A22CE53DC000075BD /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				C10B29F422E8311A00E6C9F7 /* NewEpisode */,
+				C108AD5022E5E6B6006B7C67 /* Details */,
 				C197238322DCBA8300219915 /* Home */,
 				C1C1C23622D0CE370038156E /* Login */,
-				C1AC8A6B22CE53DC000075BD /* AppDelegate.swift */,
-				C1AC8A7222CE53DD000075BD /* Assets.xcassets */,
-				C1AC8A7422CE53DD000075BD /* LaunchScreen.storyboard */,
-				C1AC8A7722CE53DD000075BD /* Info.plist */,
+				C10BBE5522E9C31500BDB325 /* Supporting files */,
 			);
 			path = TVShows;
 			sourceTree = "<group>";
@@ -179,8 +236,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C108AD5422E5E707006B7C67 /* Details.storyboard in Resources */,
 				C1AC8A7622CE53DD000075BD /* LaunchScreen.storyboard in Resources */,
 				C1AC8A7322CE53DD000075BD /* Assets.xcassets in Resources */,
+				C10B29F622E831D900E6C9F7 /* NewEpisode.storyboard in Resources */,
 				C1C1C23822D0CEAC0038156E /* Login.storyboard in Resources */,
 				C197238522DCBB9D00219915 /* Home.storyboard in Resources */,
 			);
@@ -237,9 +296,18 @@
 			files = (
 				C12770AF22E35354000B5B68 /* Show.swift in Sources */,
 				C1C1C23E22D0D6700038156E /* LoginViewController.swift in Sources */,
+				C12770B322E4614C000B5B68 /* TVShowTableViewCell.swift in Sources */,
+				C10BBE5922EA1F1B00BDB325 /* EpisodeTableViewCell.swift in Sources */,
+				C11AD04622E736B600B21A29 /* Episode.swift in Sources */,
+				C12770B122E45DF8000B5B68 /* TVShowItem.swift in Sources */,
+				C10B29F822E8321100E6C9F7 /* NewEpisodeViewController.swift in Sources */,
 				C19F580322DDA3A900A18A49 /* LoginData.swift in Sources */,
 				C19F580122DDA2A100A18A49 /* User.swift in Sources */,
 				C1AC8A6C22CE53DC000075BD /* AppDelegate.swift in Sources */,
+				C11AD04A22E73D1B00B21A29 /* DescriptionCell.swift in Sources */,
+				C108AD5222E5E6EC006B7C67 /* ShowDetailsViewController.swift in Sources */,
+				C11AD04822E7385E00B21A29 /* ShowInfo.swift in Sources */,
+				C10BBE5422E8BD6100BDB325 /* NewEpisode.swift in Sources */,
 				C1A48EF922DB7C6C00856BB1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9TH2M95GL;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TVShows/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9TH2M95GL;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TVShows/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
