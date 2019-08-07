@@ -20,6 +20,7 @@ final class CommentsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var stackViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var commentTextField: UITextField!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -93,6 +94,7 @@ final class CommentsViewController: UIViewController {
         let window = UIApplication.shared.keyWindow
         let bottomPadding = window?.safeAreaInsets.bottom
         stackViewBottomConstraint.constant = (keyboardHeight - bottomPadding!)
+        tableViewBottomConstraint.constant = tableViewBottomConstraint.constant + (keyboardHeight - bottomPadding!)
         print(keyboardHeight)
     }
     
@@ -101,6 +103,7 @@ final class CommentsViewController: UIViewController {
         let window = UIApplication.shared.keyWindow
         let bottomPadding = window?.safeAreaInsets.bottom
         stackViewBottomConstraint.constant -= (keyboardHeight - bottomPadding!)
+        tableViewBottomConstraint.constant -= (keyboardHeight - bottomPadding!)
         print(keyboardHeight)
     }
     

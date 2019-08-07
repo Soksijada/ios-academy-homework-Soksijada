@@ -200,6 +200,7 @@
                         <outlet property="episodeTitleTextField" destination="vcz-Po-hye" id="jcy-Pj-G4d"/>
                         <outlet property="image" destination="kj4-1B-aON" id="AYs-rJ-6Gx"/>
                         <outlet property="seasonNumberTextField" destination="cRx-VH-OhZ" id="mXM-0S-cED"/>
+                        <outlet property="stackViewBottomConstraint" destination="gWm-yd-3Kh" id="D7x-kC-3g7"/>
                         <outlet property="uploadPhotoButton" destination="F3H-RF-gSp" id="1ZB-fc-pW7"/>
                     </connections>
                 </viewController>

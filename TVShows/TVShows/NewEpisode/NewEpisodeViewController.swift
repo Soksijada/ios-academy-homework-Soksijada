@@ -20,7 +20,7 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
     private var mediaId: String = "No media ID"
     private var pickerImage: UIImage?
     private var picker = UIImagePickerController()
-    
+   
     // MARK: - Outlets
 
     @IBOutlet private weak var image: UIImageView!
@@ -29,6 +29,7 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
     @IBOutlet private weak var seasonNumberTextField: UITextField!
     @IBOutlet private weak var episodeNumberTextField: UITextField!
     @IBOutlet private weak var episodeDescriptionTextField: UITextField!
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Actions
     
@@ -55,6 +56,8 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         configurePicker()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +65,22 @@ final class NewEpisodeViewController: UIViewController, UIImagePickerControllerD
     }
     
     // MARK: - Private functions
+    
+    @objc private func keyBoardWillShow(notification: NSNotification) {
+        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        let window = UIApplication.shared.keyWindow
+        let bottomPadding = window?.safeAreaInsets.bottom
+        stackViewBottomConstraint.constant = stackViewBottomConstraint.constant + (keyboardHeight - bottomPadding!)
+        print(keyboardHeight)
+    }
+    
+    @objc private func keyBoardWillHide(notification: NSNotification) {
+        let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        let window = UIApplication.shared.keyWindow
+        let bottomPadding = window?.safeAreaInsets.bottom
+        stackViewBottomConstraint.constant -= (keyboardHeight - bottomPadding!)
+        print(keyboardHeight)
+    }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)

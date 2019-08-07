@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoA-kd-c0R">
                                         <rect key="frame" x="324" y="0.0" width="60" height="60"/>
@@ -160,6 +160,7 @@
                         <outlet property="noCommentLabel" destination="JV0-Iz-p4m" id="rxl-HA-bs6"/>
                         <outlet property="stackViewBottomConstraint" destination="45k-BX-ryC" id="jty-Cv-ltD"/>
                         <outlet property="tableView" destination="OEg-hZ-W08" id="eCu-Ja-lZB"/>
+                        <outlet property="tableViewBottomConstraint" destination="ybu-oD-elD" id="GuL-Hf-ER0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxV-NQ-ZLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
