@@ -8,11 +8,20 @@
 
 import Foundation
 
-struct ShowInfo: Decodable {
+struct ShowInfo: Codable {
     let type: String
     let title: String
     let description: String
-    let _id: String
+    let id: String
     let likesCount: Int
     let imageUrl: String
+    
+    enum CodingKeys: String, CodingKey {
+        case type
+        case title
+        case description
+        case id = "_id"
+        case likesCount
+        case imageUrl
+    }
 }

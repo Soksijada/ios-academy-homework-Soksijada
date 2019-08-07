@@ -26,6 +26,8 @@ final class EpisodeTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - Configure function
+
 extension EpisodeTableViewCell {
     func configure(with item: Episode) {
         seasonLabel.text = item.season

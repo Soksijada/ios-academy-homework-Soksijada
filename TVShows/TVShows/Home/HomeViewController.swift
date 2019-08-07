@@ -24,6 +24,14 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    // MARK: - Actions
+    
+    @IBAction private func logOut() {
+        navigationController?.popToRootViewController(animated: true)
+        UserDefaults.standard.set(nil, forKey: "username")
+        UserDefaults.standard.set(nil, forKey: "password")
+    }
+    
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
@@ -70,7 +78,8 @@ private extension HomeViewController {
                 method: .get,
                 encoding: JSONEncoding.default,
                 headers: headers as? HTTPHeaders
-            ).validate().responseDecodableObject(keyPath: "data") {
+            ).validate()
+            .responseDecodableObject(keyPath: "data") {
                 (response: DataResponse<[Show]>) in
                 SVProgressHUD.dismiss()
                 switch response.result {
